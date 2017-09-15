@@ -6,10 +6,10 @@ import {
     Link,
     Switch
 } from 'react-router-dom'
-import style from './style.css'
-
+import './reset.css'
 import {Detail} from './detail'
 import {Home} from './home'
+import Banner from "./components/banner/Banner";
 
 class AppIndex extends Component {
     constructor(props) {
@@ -23,8 +23,8 @@ class AppIndex extends Component {
     render() {
         return (
             <Router>
-                <div className={style.app}>
-                    <button onClick={()=>this.setState({count:this.state.count+1})}>IndexRoot</button>
+                <div>
+                    <Banner/>
                     <h2>{this.state.count}</h2>
                     <Switch>
                         <Route exact path='/' component={Home}/>

@@ -9,7 +9,7 @@ class Detail extends Component{
 
     render(){
         return(
-            <h1>Home</h1>
+            <h1>Detail</h1>
         )
     }
 }

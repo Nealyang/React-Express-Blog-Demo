@@ -12,12 +12,12 @@ console.log(pathLib.resolve(ENTRY_PATH, 'index.js'));
 
 module.exports = {
     entry: {
-        index: pathLib.resolve(ENTRY_PATH, 'index.js'),
+        index: ['babel-polyfill',pathLib.resolve(ENTRY_PATH, 'index.js')],
         vendor: ['react', 'react-dom', 'react-router-dom']
     },
     output: {
         path: OUTPUT_PATH,
-        publicPath: '/',
+        publicPath: './',
         filename: '[name]-[chunkhash].js'
     },
     devtool: 'source-map',
@@ -45,6 +45,20 @@ module.exports = {
                         'postcss-loader'
                     ]
                 })
+            },
+            {
+                test: /\.css$/,
+                include: /node_modules/,
+                use: ['style-loader',
+                    {
+                        loader: 'css-loader'
+                    },
+                    'postcss-loader'
+                ]
+            },
+            {
+                test: /\.less$/,
+                use: ["style-loader", 'css-loader', "postcss-loader", "less-loader"]
             },
             {
                 test: /\.(png|jpg|gif|JPG|GIF|PNG|BMP|bmp|JPEG|jpeg)$/,
