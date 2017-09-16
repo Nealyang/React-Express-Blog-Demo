@@ -1,1 +1,8 @@
+.carouselImgContainer{
+    width: 100%;
+}
+.carouselImgContainer img{
+    width: 100%;
+    height: 200px;
 
+}

@@ -1,61 +1,32 @@
 import React,{Component,PropsTypes} from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
-import BannerAnim, { Element } from 'rc-banner-anim';
-import TweenOne from 'rc-tween-one';
-import 'rc-banner-anim/assets/index.css';
-const BgElement = Element.BgElement;
 import style from './style.css'
-
+import { Carousel } from 'antd';
+const carouselImgs = [
+    require('./banner_1.png'),
+    require('./banner_2.png'),
+    require('./banner_3.png'),
+]
 export default class Banner extends Component{
     constructor(props){
         super(props);
-        this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
+        this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+        this.renderCarousel = this.renderCarousel.bind(this)
     }
 
     render(){
         return (
-            <BannerAnim prefixCls="banner-user" autoPlay>
-                <Element
-                    prefixCls="banner-user-elem"
-                    key="0"
-                    style={{
-                        background: '#364D79',
-                    }}
-                >
-                    <BgElement
-                        key="bg"
-                        className="bg"
-                    />
-                    <TweenOne className="banner-user-title" animation={{ y: 30, opacity: 0, type: 'from' }}>
-                        Ant Motion Banner
-                    </TweenOne>
-                    <TweenOne className="banner-user-text"
-                              animation={{ y: 30, opacity: 0, type: 'from', delay: 100 }}
-                    >
-                        The Fast Way Use Animation In React
-                    </TweenOne>
-                </Element>
-                <Element
-                    prefixCls="banner-user-elem"
-                    key="1"
-                    style={{
-                        background: '#64CBCC',
-                    }}
-                >
-                    <BgElement
-                        key="bg"
-                        className="bg"
+            <Carousel autoplay>
+                {this.renderCarousel(carouselImgs)}
+            </Carousel>
+           );
+    }
 
-                    />
-                    <TweenOne className="banner-user-title" animation={{ y: 30, opacity: 0, type: 'from' }}>
-                        Ant Motion Banner
-                    </TweenOne>
-                    <TweenOne className="banner-user-text"
-                              animation={{ y: 30, opacity: 0, type: 'from', delay: 100 }}
-                    >
-                        The Fast Way Use Animation In React
-                    </TweenOne>
-                </Element>
-            </BannerAnim>);
+    renderCarousel(imgs){
+        return imgs.map((item,index)=>
+            <div key={index} className={style.carouselImgContainer}>
+                <img src={item}/>
+            </div>
+        )
     }
 }

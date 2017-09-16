@@ -24,7 +24,7 @@ class AppIndex extends Component {
         return (
             <Router>
                 <div>
-                    <Banner/>
+                    <Banner />
                     <h2>{this.state.count}</h2>
                     <Switch>
                         <Route exact path='/' component={Home}/>
@@ -34,6 +34,7 @@ class AppIndex extends Component {
             </Router>
         )
     }
+
 }
 
 export default AppIndex
