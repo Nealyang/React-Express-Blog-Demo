@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch-client": "cross-env NODE_ENV=development node ./server/index.js ",
     "start-prod": "cross-env NODE_ENV=production node bin/server",
-    "start-dev": "nodemon --watch server bin/server.js"
+    "start-dev-api": "nodemon --watch server/api server/api/index.js",
+    "start": "npm run watch-client & npm run start-dev-api"
   },
   "repository": {
     "type": "git",
@@ -29,7 +30,7 @@
     "express": "^4.15.4",
     "http-proxy": "^1.16.2",
     "markdown": "^0.5.0",
-    "mongose": "0.0.2-security",
+    "mongoose": "^4.11.11",
     "react": "^15.6.1",
     "react-addons-pure-render-mixin": "^15.6.0",
     "react-dom": "^15.6.1",
@@ -50,6 +51,7 @@
     "babel-loader": "^7.1.2",
     "babel-plugin-import": "^1.4.0",
     "babel-plugin-react-transform": "^2.0.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-remove-console": "^6.8.5",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.26.0",

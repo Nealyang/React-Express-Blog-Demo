@@ -23,7 +23,7 @@ module.exports = {
     },
     output: {
         path: OUTPUT_PATH,
-        publicPath: './',
+        publicPath: '/',
         filename: '[name]-[hash:8].js'
     },
     devtool: 'cheap-module-eval-source-map',
