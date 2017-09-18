@@ -11,6 +11,7 @@ import {Detail} from './detail'
 import {Home} from './home'
 import Banner from "./components/banner/Banner";
 import Menus from "./components/menu/Menus";
+import NotFound from "../components/notFound/NotFound";
 
 class AppIndex extends Component {
     constructor(props) {
@@ -26,6 +27,7 @@ class AppIndex extends Component {
             <Router>
                 <div>
                     <Switch>
+                        <Route path='/404' component={NotFound}/>
                         <Route path='/admin' component={Admin}/>
                         <Route component={Front}/>
                     </Switch>
@@ -37,7 +39,6 @@ class AppIndex extends Component {
 }
 
 const Front = ({match})=>{
-    console.info(match);
     return(
         <div>
             <Banner/>
@@ -46,17 +47,12 @@ const Front = ({match})=>{
                 <Route exact path={match.url} component={Home}/>
                 <Route path={`/detail/:id`} component={Detail}/>
                 <Route path={`/:tag`} component={Home}/>
-                <Route component={NoMatch}/>
+                <Route component={NotFound}/>
             </Switch>
         </div>
     )
 };
 
-const NoMatch = ({ location }) => (
-    <div>
-        <h3>No match for <code>{location.pathname}</code></h3>
-    </div>
-);
 
 const Admin = ({match})=>{
     return(
@@ -64,7 +60,7 @@ const Admin = ({match})=>{
             <Switch>
                 <Route exact path={match.url} component={Home}/>
                 <Route path={`${match.url}/detail`} component={Detail}/>
-                <Route component={NoMatch}/>
+                <Route component={NotFound}/>
             </Switch>
         </div>
     )

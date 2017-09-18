@@ -50,9 +50,17 @@ export function reducer (state=initialState,action){
     }
 }
 
+const front = combineReducers({
+   home
+});
+const admin = combineReducers({
+
+});
+
 export default combineReducers({
-    home,
-    state:reducer
+    front,
+    netState:reducer,
+    admin
 })
 
 
