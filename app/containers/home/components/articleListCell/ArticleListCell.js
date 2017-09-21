@@ -1,4 +1,4 @@
-import React,{Component,PropTypes} from 'react'
+import React from 'react'
 import style from './style.css'
 import test from '../../../../../static/1.jpg'
 export  const ArticleListCell = (props)=>(
@@ -24,7 +24,7 @@ export  const ArticleListCell = (props)=>(
                         266
                     </span>
                     <span>
-                        <img src={require('./calendar.png')} alt="评论数"/>
+                        <img src={require('./comments.png')} alt="评论数"/>
                         5
                     </span>
                 </p>

@@ -6,6 +6,7 @@ import {
 import style from './style.css'
 import ArticleList from "./components/articelList/ArticleList";
 import Login from "./components/login/Login";
+import {Pagination} from 'antd';
 
 const tags = ['html', 'javascript', 'css', 'reactJs', 'redux', 'vue', ''];
 
@@ -25,7 +26,10 @@ class Home extends Component {
                 <div className={style.container}>
                     <div className={style.contentContainer}>
                         <div className={style.newsContainer}>
-                           <ArticleList/>
+                            <ArticleList/>
+                            <div className={style.paginationContainer}>
+                                <Pagination defaultCurrent={6} total={500}/>
+                            </div>
                         </div>
                         <div className={style.loginContainer}>
                             <Login/>

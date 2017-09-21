@@ -1,0 +1,17 @@
+.container{
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+}
+
+.formStyle{
+    width: 70%;
+    margin-left: 15%;
+    text-align: center;
+    padding-top: 20px;
+}
+.loginButton{
+    width: 60%;
+}
+

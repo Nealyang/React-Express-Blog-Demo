@@ -31,6 +31,7 @@
     "http-proxy": "^1.16.2",
     "markdown": "^0.5.0",
     "mongoose": "^4.11.11",
+    "qs": "^6.5.1",
     "react": "^15.6.1",
     "react-addons-pure-render-mixin": "^15.6.0",
     "react-dom": "^15.6.1",

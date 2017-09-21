@@ -5,6 +5,10 @@
     height: 150px;
     padding:20px 10px;
     background: #fff;
+    cursor: pointer;
+}
+.container:hover{
+    box-shadow: 3px 3px 7px #9a9292;
 }
 .container>div:first-child>img{
     width: auto;

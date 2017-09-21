@@ -12,13 +12,15 @@ import {Home} from './home'
 import Banner from "./components/banner/Banner";
 import Menus from "./components/menu/Menus";
 import NotFound from "../components/notFound/NotFound";
+import {Loading} from "./components/loading/Loading"
 
 class AppIndex extends Component {
     constructor(props) {
         super(props);
         this.shouldComponentUpdate = PureRenderMixiin.shouldComponentUpdate.bind(this);
         this.state={
-            count:1
+            count:1,
+            isLoading:false
         }
     }
 
@@ -31,6 +33,7 @@ class AppIndex extends Component {
                         <Route path='/admin' component={Admin}/>
                         <Route component={Front}/>
                     </Switch>
+                    {this.state.isLoading&&<Loading/>}
                 </div>
             </Router>
         )

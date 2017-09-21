@@ -59,7 +59,7 @@ const admin = combineReducers({
 
 export default combineReducers({
     front,
-    netState:reducer,
+    globalState:reducer,
     admin
 })
 

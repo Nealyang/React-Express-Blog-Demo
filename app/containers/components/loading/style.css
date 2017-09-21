@@ -1,0 +1,11 @@
+.container{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background: rgba(0,0,0,.1);
+    z-index: 999;
+}
