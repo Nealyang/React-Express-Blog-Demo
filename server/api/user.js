@@ -10,8 +10,8 @@ import {MD5_SUFFIX,responseClient,md5} from '../util'
 
 
 router.post('/login', (req, res) => {
-    let {userName, password} = req.body;
-    if (!userName) {
+    let {username, password} = req.body;
+    if (!username) {
         responseClient(res, 400, 2, '用户名不可为空');
         return;
     }
@@ -20,7 +20,7 @@ router.post('/login', (req, res) => {
         return;
     }
     User.findOne({
-        username: userName,
+        username,
         password: md5(password + MD5_SUFFIX)
     }).then(userInfo => {
         if (userInfo) {
@@ -32,7 +32,7 @@ router.post('/login', (req, res) => {
             responseClient(res, 200, 0, '登录成功', data);
             return;
         }
-        responseClient(res, 200, 1, '用户名密码错误');
+        responseClient(res, 400, 1, '用户名密码错误');
 
     }).catch(err => {
         responseClient(res);
@@ -69,8 +69,15 @@ router.post('/register', (req, res) => {
             });
             user.save()
                 .then(function () {
-                    //数据库中没有改记录
-                    responseClient(res, 200, 0, '注册成功')
+                    User.findOne({username: userName})
+                        .then(userInfo=>{
+                            let data = {};
+                            data.username = userInfo.username;
+                            data.userType = userInfo.type;
+                            data.userId = userInfo._id;
+                            responseClient(res, 200, 0, '注册成功', data);
+                            return;
+                        });
                 })
         }).catch(err => {
         responseClient(res);

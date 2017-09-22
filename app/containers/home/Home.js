@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component,PropTypes} from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import {
     Redirect
@@ -7,6 +7,9 @@ import style from './style.css'
 import ArticleList from "./components/articelList/ArticleList";
 import Login from "./components/login/Login";
 import {Pagination} from 'antd';
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import {actions} from '../../reducers/index'
 
 const tags = ['html', 'javascript', 'css', 'reactJs', 'redux', 'vue', ''];
 
@@ -17,7 +20,7 @@ class Home extends Component {
     }
 
     render() {
-        console.log(this.props.match.params.tag);
+        const {login,register} = this.props;
         return (
             this.props.match.params.tag && (tags.indexOf(this.props.match.params.tag) === -1 || this.props.location.pathname.lastIndexOf('\/') > 0)
                 ?
@@ -32,16 +35,36 @@ class Home extends Component {
                             </div>
                         </div>
                         <div className={style.loginContainer}>
-                            <Login/>
+                            <Login userInfo={this.props.userInfo} login={login} register={register}/>
                         </div>
                     </div>
                 </div>
         )
     }
+}
 
-    componentDidMount() {
-        console.log(this.props)
+Home.defaultProps = {
+    userInfo:{}
+};
+
+Home.propsTypes = {
+    userInfo:PropTypes.object.isRequired
+};
+
+function mapStateToProps(state) {
+    return{
+        userInfo:state.globalState.userInfo
     }
 }
 
-export default Home;
+function mapDispatchToProps(dispatch) {
+    return{
+        login:bindActionCreators(actions.get_login,dispatch),
+        register:bindActionCreators(actions.get_register,dispatch)
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Home);

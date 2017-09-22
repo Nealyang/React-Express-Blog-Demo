@@ -14,12 +14,13 @@ class LoginFormCom extends Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                post('/user/login', values)
-                    .then(data => {
-                        console.log(data)
-                    }).catch(err => {
-                    console.log(err)
-                })
+                // post('/user/login', values)
+                //     .then(data => {
+                //         console.log(data)
+                //     }).catch(err => {
+                //     console.log(err)
+                // })
+                this.props.login(values.userName,values.password)
             }
         });
     };

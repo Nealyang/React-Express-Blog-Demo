@@ -13,7 +13,7 @@ const mountNode = document.getElementById('app');
 const store = configureStore();
 
 render(
-    <AppContainer >
+    <AppContainer>
         <Provider store={store}>
             <IndexApp/>
         </Provider>

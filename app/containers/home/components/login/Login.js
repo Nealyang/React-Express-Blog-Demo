@@ -14,13 +14,14 @@ export default class Login extends Component {
 
 
     render() {
+        const {login,register} = this.props;
         return (
             <Tabs defaultActiveKey="1" tabBarStyle={{textAlign: 'center'}} className={style.container}>
-                <TabPane tab="注册" key="1">
-                    <LoginForm/>
+                <TabPane tab="登录" key="1">
+                    <LoginForm login={login}/>
                 </TabPane>
-                <TabPane tab="登录" key="2">
-                    <RegisterForm/>
+                <TabPane tab="注册" key="2">
+                    <RegisterForm register={register}/>
                 </TabPane>
             </Tabs>
         )

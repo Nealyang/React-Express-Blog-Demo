@@ -13,18 +13,33 @@ import Banner from "./components/banner/Banner";
 import Menus from "./components/menu/Menus";
 import NotFound from "../components/notFound/NotFound";
 import {Loading} from "./components/loading/Loading"
+import {notification} from 'antd';
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import {actions} from '../reducers'
+
+const {clear_msg} = actions;
 
 class AppIndex extends Component {
+
     constructor(props) {
         super(props);
+        this.openNotification = this.openNotification.bind(this);
         this.shouldComponentUpdate = PureRenderMixiin.shouldComponentUpdate.bind(this);
-        this.state={
-            count:1,
-            isLoading:false
-        }
     }
 
+    openNotification (type, message) {
+        let that = this;
+        notification[type]({
+            message: message,
+            onClose: () => {
+                that.props.clear_msg();
+            }
+        });
+    };
+
     render() {
+        let {isFetching} = this.props;
         return (
             <Router>
                 <div>
@@ -33,7 +48,12 @@ class AppIndex extends Component {
                         <Route path='/admin' component={Admin}/>
                         <Route component={Front}/>
                     </Switch>
-                    {this.state.isLoading&&<Loading/>}
+                    {isFetching && <Loading/>}
+                    {this.props.notification.content ?
+                        (this.props.notification.type === 1 ?
+                            this.openNotification('success', this.props.notification.content) :
+                            this.openNotification('error', this.props.notification.content)) :
+                        null}
                 </div>
             </Router>
         )
@@ -41,8 +61,8 @@ class AppIndex extends Component {
 
 }
 
-const Front = ({match})=>{
-    return(
+const Front = ({match}) => {
+    return (
         <div>
             <Banner/>
             <Menus/>
@@ -57,8 +77,8 @@ const Front = ({match})=>{
 };
 
 
-const Admin = ({match})=>{
-    return(
+const Admin = ({match}) => {
+    return (
         <div>
             <Switch>
                 <Route exact path={match.url} component={Home}/>
@@ -69,5 +89,21 @@ const Admin = ({match})=>{
     )
 };
 
+function mapStateToProps(state) {
+    return {
+        notification: state.globalState.msg,
+        isFetching: state.globalState.isFetching
+    }
+}
 
-export default AppIndex
+function mapDispatchToProps(dispatch) {
+    return {
+        clear_msg: bindActionCreators(clear_msg, dispatch)
+    }
+}
+
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(AppIndex)

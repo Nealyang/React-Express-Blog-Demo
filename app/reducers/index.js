@@ -1,95 +1,86 @@
 import {reducer as home} from './homeReducer'
 import {combineReducers} from 'redux'
-const initialState={
-    isFetching:false,
-    errMsg:'',
-    userInfo:{}
+
+const initialState = {
+    isFetching: false,
+    msg: {
+        type: 1,//0失败 1成功
+        content: ''
+    },
+    userInfo: {}
 };
 
 export const actionsTypes = {
-    FETCH_START:"FETCH_START",
-    FETCH_END:"FETCH_END",
-    FETCH_ERROR:"FETCH_ERROR",
-    USER_LOGIN:"USER_LOGIN",
-    USER_REGISTER:"USER_REGISTER",
-    RESPONSE_USER_INFO:"RESPONSE_USER_INFO"
+    FETCH_START: "FETCH_START",
+    FETCH_END: "FETCH_END",
+    USER_LOGIN: "USER_LOGIN",
+    USER_REGISTER: "USER_REGISTER",
+    RESPONSE_USER_INFO: "RESPONSE_USER_INFO",
+    SET_MESSAGE: "SET_MESSAGE"
 };
 
 export const actions = {
-    fetch_start:function () {
-        return{
-            type:actionsTypes.FETCH_START
-        }
-    },
-    fetch_end:function () {
-        return{
-            type:actionsTypes.FETCH_END
-        }
-    },
-    fetch_error:function (msg) {
-        return{
-            type:actionsTypes.FETCH_ERROR,
-            msg:msg
-        }
-    },
-    get_login:function (username, password) {
-        return{
-            type:actionsTypes.USER_LOGIN,
+    get_login: function (username, password) {
+        return {
+            type: actionsTypes.USER_LOGIN,
             username,
             password
         }
     },
-    get_register:function (username,password,repassword) {
-        return{
-            type:actionsTypes.USER_REGISTER,
-            password,
-            username,
-            repassword
+    get_register: function (data) {
+        return {
+            type: actionsTypes.USER_REGISTER,
+            data
         }
     },
-    responseUserInfo:function (data) {
-        return{
-            type:actionsTypes.RESPONSE_USER_INFO,
-            data:data
+    clear_msg: function () {
+        return {
+            type: actionsTypes.SET_MESSAGE,
+            msgType: 1,
+            msgContent: ''
         }
-    }
+    },
 };
 
-export function reducer (state=initialState,action){
-    switch (action.type){
+export function reducer(state = initialState, action) {
+    switch (action.type) {
         case actionsTypes.FETCH_START:
-            return{
-                ...state,isFetching:true
+            return {
+                ...state, isFetching: true
             };
         case actionsTypes.FETCH_END:
-            return{
-                ...state,isFetching:false
+            return {
+                ...state, isFetching: false
             };
-        case actionsTypes.FETCH_ERROR:
-            return{
-                isFetching:false,
-                errMsg:action.msg
+        case actionsTypes.SET_MESSAGE:
+            return {
+                ...state,
+                isFetching: false,
+                msg: {
+                    type: action.msgType,
+                    content: action.msgContent
+                }
             };
         case actionsTypes.RESPONSE_USER_INFO:
-            return{
-                ...state,userInfo:action.data
+            return {
+                ...state, userInfo: action.data
             };
         default:
             return state
     }
 }
 
-const front = combineReducers({
-   home
-});
-const admin = combineReducers({
-
-});
+// const front = combineReducers({
+//    // home
+// });
+// const admin = combineReducers({
+//
+// });
 
 export default combineReducers({
-    front,
-    globalState:reducer,
-    admin
+    // front,
+    globalState: reducer,
+    // admin
 })
 
 

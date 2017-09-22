@@ -1,5 +1,6 @@
 import {fork,call} from 'redux-saga/effects'
-
+import {loginFlow,registerFlow} from './homeSaga'
 export default function* rootSaga() {
-    console.log('hello saga');
+    yield  fork(loginFlow);
+    yield  fork(registerFlow)
 }

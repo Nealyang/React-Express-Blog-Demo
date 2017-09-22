@@ -12,11 +12,7 @@ class RegisterFormCom extends Component{
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                console.log('Received values of form: ', values);
-                post('/user/register',values)
-                    .then(data=>{
-                        console.log(data)
-                    })
+                this.props.register(values);
             }
         });
     };

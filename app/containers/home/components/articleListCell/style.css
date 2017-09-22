@@ -47,6 +47,10 @@
     flex-direction: row;
     color: #cdcdcd;
 }
+.summary{
+    font-size: 14px;
+    margin-bottom: 5px;
+}
 .bottomContainer>div>p img{
     margin-right: 5px;
 }
