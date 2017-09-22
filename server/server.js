@@ -50,17 +50,10 @@ if(process.env.NODE_EVN!=='production'){
     app.use(WebpackHotMiddleware(compiler));
 }
 
-mongoose.connect(`mongodb://${config.dbHost}:${config.dbPort}/blog`,function (err) {
+app.listen(port,(err)=>{
     if(err){
-        console.error('数据库连接失败');
+        console.error(err)
     }else{
-        app.listen(port,(err)=>{
-            if(err){
-                console.error(err)
-            }else{
-                console.log(`===>open http://${config.host}:${config.port} in a browser to view the app`);
-            }
-        });
+        console.log(`===>open http://${config.host}:${config.port} in a browser to view the app`);
     }
-
 });

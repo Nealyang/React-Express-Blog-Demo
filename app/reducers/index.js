@@ -2,13 +2,17 @@ import {reducer as home} from './homeReducer'
 import {combineReducers} from 'redux'
 const initialState={
     isFetching:false,
-    errMsg:''
+    errMsg:'',
+    userInfo:{}
 };
 
 export const actionsTypes = {
     FETCH_START:"FETCH_START",
     FETCH_END:"FETCH_END",
-    FETCH_ERROR:"FETCH_ERROR"
+    FETCH_ERROR:"FETCH_ERROR",
+    USER_LOGIN:"USER_LOGIN",
+    USER_REGISTER:"USER_REGISTER",
+    RESPONSE_USER_INFO:"RESPONSE_USER_INFO"
 };
 
 export const actions = {
@@ -27,6 +31,27 @@ export const actions = {
             type:actionsTypes.FETCH_ERROR,
             msg:msg
         }
+    },
+    get_login:function (username, password) {
+        return{
+            type:actionsTypes.USER_LOGIN,
+            username,
+            password
+        }
+    },
+    get_register:function (username,password,repassword) {
+        return{
+            type:actionsTypes.USER_REGISTER,
+            password,
+            username,
+            repassword
+        }
+    },
+    responseUserInfo:function (data) {
+        return{
+            type:actionsTypes.RESPONSE_USER_INFO,
+            data:data
+        }
     }
 };
 
@@ -44,6 +69,10 @@ export function reducer (state=initialState,action){
             return{
                 isFetching:false,
                 errMsg:action.msg
+            };
+        case actionsTypes.RESPONSE_USER_INFO:
+            return{
+                ...state,userInfo:action.data
             };
         default:
             return state

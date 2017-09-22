@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import {Input,Form, Icon,Button} from 'antd'
 const FormItem = Form.Item;
 import style from './style.css'
+import {post} from "../../../../fetch/fetch";
 class RegisterFormCom extends Component{
     constructor(props){
         super(props);
@@ -12,6 +13,10 @@ class RegisterFormCom extends Component{
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
+                post('/user/register',values)
+                    .then(data=>{
+                        console.log(data)
+                    })
             }
         });
     };

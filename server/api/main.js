@@ -9,16 +9,9 @@ router.use(function (req, res, next) {
     responseData.code = 200;
     responseData.message = '';
     responseData.data = {};
-    next()
+    next();
 });
 
-router.post('/user/login',(req,res)=>{
-    console.log(req.body)
-    // res.json({
-    //     code:200,
-    //     message:'ok',
-    //     data:{dd:111}
-    // })
-});
+router.use('/user',require('./user'));
 
 module.exports = router;
