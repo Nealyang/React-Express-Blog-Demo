@@ -15,7 +15,7 @@ export default class AdminMenu extends Component {
         return (
             <div>
                 <Menu
-                    defaultSelectedKeys={[this.props.url]}
+                    selectedKeys={[this.props.url]}
                     mode="inline"
                     theme="dark"
                     onClick={({key}) => {
@@ -35,4 +35,5 @@ export default class AdminMenu extends Component {
             </div>
         )
     }
+
 }

@@ -47,13 +47,7 @@ class AppIndex extends Component {
                 <div>
                     <Switch>
                         <Route path='/404' component={NotFound}/>
-                        <Route path='/admin' render={({history}) => {
-                            if (this.props.userInfo.userType) {
-                                return <Admin history={history} url='/admin' userInfo={this.props.userInfo}/>
-                            } else {
-                                return <NotFound/>
-                            }
-                        }}/>
+                        <Route path='/admin' component={Admin}/>
                         <Route component={Front}/>
                     </Switch>
                     {isFetching && <Loading/>}

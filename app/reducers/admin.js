@@ -19,7 +19,9 @@ export const actions = {
 export function reducer(state=initialState,action) {
     switch (action.type){
         case actionTypes.ADMIN_URI_LOCATION:
-            return action.data;
+            return {
+                ...state,url:action.data
+            };
         default:
             return state
     }
