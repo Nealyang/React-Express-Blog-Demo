@@ -24,11 +24,14 @@ router.post('/login', (req, res) => {
         password: md5(password + MD5_SUFFIX)
     }).then(userInfo => {
         if (userInfo) {
-            //存在
+            //登录成功
             let data = {};
             data.username = userInfo.username;
             data.userType = userInfo.type;
             data.userId = userInfo._id;
+            //登录成功后设置session
+            req.session.userInfo = data;
+
             responseClient(res, 200, 0, '登录成功', data);
             return;
         }
@@ -83,6 +86,20 @@ router.post('/register', (req, res) => {
         responseClient(res);
         return;
     });
+});
+
+//用户验证
+router.get('/userInfo',function (req,res) {
+    if(req.session.userInfo){
+        responseClient(res,200,0,'',req.session.userInfo)
+    }else{
+        responseClient(res,200,1,'请重新登录',req.session.userInfo)
+    }
+});
+
+router.get('/logout',function (req,res) {
+    req.session.destroy();
+    res.redirect('/');
 });
 
 module.exports = router;

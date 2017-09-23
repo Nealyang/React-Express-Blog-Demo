@@ -1,0 +1,25 @@
+.container{
+    height: 300px;
+    width: 285px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 20px;
+    background-color: #fff;
+}
+.container>div{
+    width: 50%;
+    background: #eee;
+
+}
+.container p:nth-child(2){
+    margin-top: 20px;
+}
+
+.container>img{
+    width: 27%;
+    margin-top: 20px;
+}
+.centerP{
+    margin:25px 0;
+}

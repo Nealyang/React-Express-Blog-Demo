@@ -16,9 +16,15 @@ app.use('/api',(req,res)=>{
     proxy.web(req,res,{target:targetUrl})
 });
 
+
 app.use('/', connectHistoryApiFallback());
 app.use('/',Express.static(path.join(__dirname,"..",'build')));
 
+app.use('/admin',function (req,res,next) {
+    console.info(11111111)
+    console.info(req.session)
+    next()
+})
 const targetUrl = `http://${config.apiHost}:${config.apiPort}`;
 const proxy = httpProxy.createProxyServer({
     target:targetUrl

@@ -10,6 +10,7 @@ import {Pagination} from 'antd';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {actions} from '../../reducers/index'
+import {Logined} from "./components/logined/Logined";
 
 const tags = ['html', 'javascript', 'css', 'reactJs', 'redux', 'vue', ''];
 
@@ -35,7 +36,7 @@ class Home extends Component {
                             </div>
                         </div>
                         <div className={style.loginContainer}>
-                            <Login userInfo={this.props.userInfo} login={login} register={register}/>
+                            {this.props.userInfo.userId?<Logined history={this.props.history} userInfo={this.props.userInfo}/>:<Login  login={login} register={register}/>}
                         </div>
                     </div>
                 </div>

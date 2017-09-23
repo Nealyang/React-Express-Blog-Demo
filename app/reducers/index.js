@@ -2,7 +2,7 @@ import {reducer as home} from './homeReducer'
 import {combineReducers} from 'redux'
 
 const initialState = {
-    isFetching: false,
+    isFetching: true,
     msg: {
         type: 1,//0失败 1成功
         content: ''
@@ -16,7 +16,8 @@ export const actionsTypes = {
     USER_LOGIN: "USER_LOGIN",
     USER_REGISTER: "USER_REGISTER",
     RESPONSE_USER_INFO: "RESPONSE_USER_INFO",
-    SET_MESSAGE: "SET_MESSAGE"
+    SET_MESSAGE: "SET_MESSAGE",
+    USER_AUTH:"USER_AUTH"
 };
 
 export const actions = {
@@ -40,6 +41,11 @@ export const actions = {
             msgContent: ''
         }
     },
+    user_auth:function () {
+        return{
+            type:actionsTypes.USER_AUTH
+        }
+    }
 };
 
 export function reducer(state = initialState, action) {

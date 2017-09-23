@@ -1,6 +1,5 @@
 import {put, take, call, fork} from 'redux-saga/effects'
 import {get, post} from '../fetch/fetch'
-import {actionTypes as HomeActionsTypes} from '../reducers/homeReducer'
 import {actionsTypes as IndexActionTypes} from '../reducers'
 
 export function* login(username, password) {
@@ -45,5 +44,22 @@ export function* registerFlow () {
             yield put({type:IndexActionTypes.RESPONSE_USER_INFO,data:response.data})
         }
 
+    }
+}
+
+export function* user_auth () {
+    while(true){
+        yield take(IndexActionTypes.USER_AUTH);
+        try {
+            yield put({type:IndexActionTypes.FETCH_START});
+            let response = yield call(get,'/user/userInfo');
+            if(response && response.code === 0){
+                yield put({type:IndexActionTypes.RESPONSE_USER_INFO,data:response.data})
+            }
+        }catch (err){
+            console.log(err);
+        }finally {
+            yield put({type: IndexActionTypes.FETCH_END});
+        }
     }
 }
