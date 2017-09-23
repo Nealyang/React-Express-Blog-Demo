@@ -3,9 +3,7 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
 import {connect} from 'react-redux'
 import {actions} from '../../reducers/index'
 import {bindActionCreators} from 'redux'
-import {
-    Redirect
-} from 'react-router-dom'
+
 const {user_auth} = actions;
 class AdminIndex extends Component {
     constructor(props) {
@@ -14,15 +12,11 @@ class AdminIndex extends Component {
     }
 
     render() {
-        if(this.props.userInfo.userType){
-            return (
-                <div>
-                    {this.props.isAdmin? <h1>admin管理页面</h1>:<Redirect to='/'/>}
-                </div>
-            )
-        }else{
-            return <h1>您没有权限</h1>
-        }
+        return(
+            <div>
+                <h1>Welcome to my blog</h1>
+            </div>
+        )
 
     }
 }

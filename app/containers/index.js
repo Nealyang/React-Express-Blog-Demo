@@ -7,7 +7,6 @@ import {
     Redirect
 } from 'react-router-dom'
 import './reset.css'
-import style from './style.css'
 import {Detail} from './detail'
 import {Home} from './home'
 import Banner from "./components/banner/Banner";
@@ -18,8 +17,7 @@ import {notification} from 'antd';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {actions} from '../reducers'
-import AdminIndex from "./adminIndex/AdminIndex";
-import AdminMenu from "../components/adminMenu/AdminMenu";
+import Admin from "./admin/Admin";
 
 const {clear_msg, user_auth} = actions;
 
@@ -39,6 +37,7 @@ class AppIndex extends Component {
                 that.props.clear_msg();
             }
         });
+        that.props.clear_msg();
     };
 
     render() {
@@ -48,9 +47,9 @@ class AppIndex extends Component {
                 <div>
                     <Switch>
                         <Route path='/404' component={NotFound}/>
-                        <Route path='/admin' render={() => {
+                        <Route path='/admin' render={({history}) => {
                             if (this.props.userInfo.userType) {
-                                return <Admin url='/admin' userInfo={this.props.userInfo}/>
+                                return <Admin history={history} url='/admin' userInfo={this.props.userInfo}/>
                             } else {
                                 return <NotFound/>
                             }
@@ -90,29 +89,6 @@ const Front = ({match}) => {
     )
 };
 
-
-const Admin = (props) => {
-    return (
-        <div>
-            {
-                props.userInfo.userType === 'admin' ?
-                    <div className={style.container}>
-                        <div className={style.menuContainer}>
-                            <AdminMenu/>
-                        </div>
-                        <div className={style.contentContainer}>
-                            <Switch>
-                                <Route exact path={props.url} component={AdminIndex}/>
-                                <Route path={`${props.url}/detail`} component={Detail}/>
-                                <Route component={NotFound}/>
-                            </Switch>
-                        </div>
-                    </div> :
-                    <Redirect to='/'/>
-            }
-        </div>
-    )
-};
 
 function mapStateToProps(state) {
     return {

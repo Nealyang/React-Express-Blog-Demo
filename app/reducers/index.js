@@ -1,6 +1,6 @@
 import {reducer as home} from './homeReducer'
 import {combineReducers} from 'redux'
-
+import admin from './admin'
 const initialState = {
     isFetching: true,
     msg: {
@@ -79,14 +79,11 @@ export function reducer(state = initialState, action) {
 // const front = combineReducers({
 //    // home
 // });
-// const admin = combineReducers({
-//
-// });
 
 export default combineReducers({
     // front,
     globalState: reducer,
-    // admin
+    admin
 })
 
 
