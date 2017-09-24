@@ -1,3 +1,4 @@
 /api/user/register      注册
-/api/user/login      登录
+/api/user/login         登录
 /api/user/userInfo      身份验证
+/api/admin/getUsers     获取全部的用户

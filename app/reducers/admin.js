@@ -1,4 +1,5 @@
 import {combineReducers} from 'redux'
+import {users} from './adminManagerUser'
 export const actionTypes = {
     ADMIN_URI_LOCATION:"ADMIN_URI_LOCATION"
 };
@@ -28,7 +29,8 @@ export function reducer(state=initialState,action) {
 }
 
 const admin = combineReducers({
-    adminGlobalState:reducer
+    adminGlobalState:reducer,
+    users
 });
 
 export default admin
