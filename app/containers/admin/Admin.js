@@ -14,6 +14,7 @@ import {bindActionCreators} from 'redux'
 import {actions} from '../../reducers/admin'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import AdminManagerUser from "../adminManagerUser/AdminManagerUser";
+import AdminNewArticle from "../adminNewArticle/AdminNewArticle";
 
 const {change_location_admin} = actions;
 
@@ -25,7 +26,6 @@ class Admin extends Component {
 
     render() {
         const {url} = this.props.match;
-        console.log('adminUrl',this.props.adminUrl)
         if(this.props.userInfo.userType){
             return (
                 <div>
@@ -41,6 +41,7 @@ class Admin extends Component {
                                     <Switch>
                                         <Route exact path={url} component={AdminIndex}/>
                                         <Route path={`${url}/managerUser`} component={AdminManagerUser}/>
+                                        <Route path={`${url}/newArticle`} component={AdminNewArticle}/>
                                         <Route path={`${url}/detail`} component={Detail}/>
                                         <Route component={NotFound}/>
                                     </Switch>
@@ -57,7 +58,7 @@ class Admin extends Component {
     }
 
     componentWillReceiveProps() {
-        this.props.change_location_admin(window.location.pathname.replace(/\/admin/, ""));
+        this.props.change_location_admin(window.location.pathname.replace(/\/admin/, "")||'/');
     }
 }
 Admin.defaultProps = {

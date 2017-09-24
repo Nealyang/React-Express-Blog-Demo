@@ -1,8 +1,9 @@
 import React from 'react'
 import style from './style.css'
 import test from '../../../../../static/1.jpg'
+
 export  const ArticleListCell = (props)=>(
-    <div className={style.container}>
+    <div className={`${style.container} `}>
         <div>
             <img src={test} alt=""/>
         </div>

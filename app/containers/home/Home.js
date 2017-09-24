@@ -11,6 +11,7 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {actions} from '../../reducers/index'
 import {Logined} from "./components/logined/Logined";
+import anStyle from '../../lib/animate.css'
 
 const tags = ['html', 'javascript', 'css', 'reactJs', 'redux', 'vue', ''];
 
@@ -29,13 +30,13 @@ class Home extends Component {
                 :
                 <div className={style.container}>
                     <div className={style.contentContainer}>
-                        <div className={style.newsContainer}>
+                        <div className={`${style.newsContainer} ${anStyle.animated} ${anStyle.fadeInUp}`}>
                             <ArticleList/>
                             <div className={style.paginationContainer}>
                                 <Pagination defaultCurrent={6} total={500}/>
                             </div>
                         </div>
-                        <div className={style.loginContainer}>
+                        <div className={`${style.loginContainer} ${anStyle.animated} ${anStyle.fadeInRight}`}>
                             {this.props.userInfo.userId?<Logined history={this.props.history} userInfo={this.props.userInfo}/>:<Login  login={login} register={register}/>}
                         </div>
                     </div>

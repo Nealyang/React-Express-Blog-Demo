@@ -45,6 +45,8 @@
     "react-slick": "^0.15.4",
     "redux": "^3.7.2",
     "redux-saga": "^0.15.6",
+    "remark": "^8.0.0",
+    "remark-react": "^4.0.1",
     "serialize-javascript": "^1.4.0",
     "serve-favicon": "^2.4.4"
   },
