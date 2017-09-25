@@ -23,5 +23,6 @@ export function users(state = initialState, action) {
             };
         default:
             return state;
+
     }
 }
