@@ -15,4 +15,5 @@
 .contentContainer{
     width: 85%;
     overflow-y: scroll;
+    padding: 20px;
 }
