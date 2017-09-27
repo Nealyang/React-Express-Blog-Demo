@@ -6,3 +6,9 @@
     background-color: #f6f8fa;
     border-radius: 3px;
 }
+
+.testCode ul{
+    margin:auto;
+    padding-left:20px;
+    list-style: disc;
+}
