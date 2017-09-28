@@ -11,10 +11,10 @@ export default class ArticleList extends Component{
     render(){
         return(
             <div>
-                <ArticleListCell/>
-                <ArticleListCell/>
-                <ArticleListCell/>
-                <ArticleListCell/>
+                <ArticleListCell tag={1}/>
+                <ArticleListCell tag={2}/>
+                <ArticleListCell tag={3}/>
+                <ArticleListCell tag={4}/>
             </div>
         )
     }

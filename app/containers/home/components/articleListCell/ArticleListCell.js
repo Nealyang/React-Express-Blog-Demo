@@ -1,11 +1,19 @@
 import React from 'react'
 import style from './style.css'
-import test from '../../../../../static/1.jpg'
+import test1 from '../../../../../static/1.jpg'
+import test2 from '../../../../../static/2.jpg'
+import test3 from '../../../../../static/3.jpg'
+import test4 from '../../../../../static/4.jpg'
 
 export  const ArticleListCell = (props)=>(
     <div className={`${style.container} `}>
         <div>
-            <img src={test} alt=""/>
+            {
+                props.tag === 1?<img src={test1} alt=""/>
+                    :props.tag === 2?<img src={test2} alt=""/>
+                    :props.tag === 3?<img src={test3} alt=""/>
+                        :<img src={test4} alt=""/>
+            }
         </div>
         <div className={style.bottomContainer}>
             <p className={style.title}>
