@@ -90,7 +90,7 @@ module.exports = {
             "progress.env.NODE_ENV": JSON.stringify('development')
         }),
         new HtmlWebpackPlugin({
-            title: "My Blog",
+            title: "Nealyang's Blog",
             showErrors: true,
         }),
         new webpack.NoEmitOnErrorsPlugin(),//保证出错时页面不阻塞，且会在编译结束后报错
