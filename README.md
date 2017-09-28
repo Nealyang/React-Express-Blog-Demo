@@ -32,13 +32,14 @@
 - [x] Mongodb
 - [x] Mongoose
 
+## TODO
 
-## 项目部分截图
-- 首页
-![index](./record/index_1.png)
+***后续收工后补充***
+
+
 ## 项目运行效果
 - 首页
-![首页git](./record/2017-09-28%2010_25_45.gif)
+![index](./record/2017-09-28%2010_25_45.gif)
 
 ## 项目介绍
 当然这是一个全栈的开源demo，在此之前写过一个[模仿大众点评的Demo](https://github.com/Nealyang/React-Fullstack-Dianping-Demo),有兄弟反应说应该加点注释。
@@ -49,7 +50,8 @@
 
 ## 项目实现步骤系列博客
 
-- [x] 实战react技术栈+express前后端博客项目（1）-- 整体项目结构搭建
+- [x] [实战react技术栈+express前后端博客项目（0）-- 预热一波](./record/doc/00_预热一波.md)
+- [x] 实战react技术栈+express前后端博客项目（1）-- 整体项目结构搭建、state状态树设计
 - [x] 实战react技术栈+express前后端博客项目（2）-- 前端react-xxx、路由配置
 - [x] 实战react技术栈+express前后端博客项目（3）-- 后端路由、代理以及静态资源托管等其他配置说明
 - [x] 实战react技术栈+express前后端博客项目（4）-- 博客首页代码编写以及redux-saga组织
@@ -72,6 +74,18 @@
 ***扫码关注我的个人微信公众号，分享更多原创文章。点击交流学习加我微信、qq群。一起学习，一起进步***
 
 ![wx](./record/wx.jpg)
+
+---
+
+欢迎兄弟们加入：
+
+Node.js技术交流群：209530601 
+
+React技术栈：398240621
+
+前端技术杂谈：604953717 (新建)
+
+---
 
 ## more
 
