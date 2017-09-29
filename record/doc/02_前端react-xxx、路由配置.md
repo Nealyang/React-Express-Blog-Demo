@@ -253,9 +253,6 @@ React技术栈：398240621
 
 ---
 
-## more
-
-![forkorstar](../forkStar.png)
 
 
    
