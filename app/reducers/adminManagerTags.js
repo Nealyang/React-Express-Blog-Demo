@@ -1,6 +1,4 @@
-const initialState = {
-    tags:[]
-};
+const initialState = [];
 
 export const actionTypes = {
     GET_ALL_TAGS:"GET_ALL_TAGS",

@@ -51,8 +51,8 @@
 ## 项目实现步骤系列博客
 
 - [x] [实战react技术栈+express前后端博客项目（0）-- 预热一波](./record/doc/00_预热一波.md)
-- [ ] [实战react技术栈+express前后端博客项目（1）-- 整体项目结构搭建、state状态树设计](./record/doc/01_整体项目结构搭建、state状态树设计.md)
-- [ ] 实战react技术栈+express前后端博客项目（2）-- 前端react-xxx、路由配置
+- [x] [实战react技术栈+express前后端博客项目（1）-- 整体项目结构搭建、state状态树设计](./record/doc/01_整体项目结构搭建、state状态树设计.md)
+- [x] [实战react技术栈+express前后端博客项目（2）-- 前端react-xxx、路由配置]()
 - [ ] 实战react技术栈+express前后端博客项目（3）-- 后端路由、代理以及静态资源托管等其他配置说明
 - [ ] 实战react技术栈+express前后端博客项目（4）-- 博客首页代码编写以及redux-saga组织
 - [ ] 实战react技术栈+express前后端博客项目（5）-- 前后端实现登录功能

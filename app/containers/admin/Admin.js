@@ -15,6 +15,7 @@ import {actions} from '../../reducers/admin'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import AdminManagerUser from "../adminManagerUser/AdminManagerUser";
 import AdminNewArticle from "../adminNewArticle/AdminNewArticle";
+import AdminManagerTags from "../adminManagerTags/AdminManagerTags";
 
 const {change_location_admin} = actions;
 
@@ -48,6 +49,7 @@ class Admin extends Component {
                                     <Switch>
                                         <Route exact path={url} component={AdminIndex}/>
                                         <Route path={`${url}/managerUser`} component={AdminManagerUser}/>
+                                        <Route path={`${url}/managerTags`} component={AdminManagerTags}/>
                                         <Route path={`${url}/newArticle`} component={AdminNewArticle}/>
                                         <Route path={`${url}/detail`} component={Detail}/>
                                         <Route component={NotFound}/>
