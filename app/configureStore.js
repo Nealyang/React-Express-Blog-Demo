@@ -22,7 +22,7 @@ if(process.env.NODE_ENV==='production'){
 export default function configureStore(initialState={}) {
     const store = createStore(rootReducer, initialState,storeEnhancers);
     sagaMiddleware.run(rootSaga);
-    if (module.hot) {
+    if (module.hot && process.env.NODE_ENV!=='production') {
         // Enable Webpack hot module replacement for reducers
         module.hot.accept( './reducers',() => {
             const nextRootReducer = require('./reducers/index');
