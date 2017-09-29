@@ -165,6 +165,8 @@ index.js render部分如下:
         )
     };
     
+admin:
+    
     render() {
             const {url} = this.props.match;
             if(this.props.userInfo.userType){
