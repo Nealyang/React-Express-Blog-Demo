@@ -1,6 +1,6 @@
 import Express from 'express'
 const router = Express.Router();
-import User from '../../modules/user'
+import User from '../../models/user'
 import {MD5_SUFFIX,responseClient,md5} from '../util'
 
 /**

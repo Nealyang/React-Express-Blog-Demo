@@ -2,3 +2,7 @@
 /api/user/login         登录
 /api/user/userInfo      身份验证
 /api/admin/getUsers     获取全部的用户
+/api/admin/getAllTags   获取全部标签(分类)
+/api/admin/addTag       添加标签
+/api/admin/editTag      修改标签
+/api/admin/delTag       删除标签
