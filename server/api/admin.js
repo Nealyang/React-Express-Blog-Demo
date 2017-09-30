@@ -8,6 +8,7 @@ router.get('/getUsers',(req,res)=>{
     let responseData = {
         total:0,
         list:[]
+
     };
     User.count()
         .then(count=>{
