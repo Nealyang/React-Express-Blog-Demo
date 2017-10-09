@@ -1,9 +1,7 @@
 import React, {Component} from 'react'
 import {Input, Form, Icon, Button} from 'antd'
-
 const FormItem = Form.Item;
 import style from './style.css'
-import {get, post} from "../../../../fetch/fetch";
 
 class LoginFormCom extends Component {
     constructor(props) {
@@ -14,12 +12,6 @@ class LoginFormCom extends Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                // post('/user/login', values)
-                //     .then(data => {
-                //         console.log(data)
-                //     }).catch(err => {
-                //     console.log(err)
-                // })
                 this.props.login(values.userName,values.password)
             }
         });

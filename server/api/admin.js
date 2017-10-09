@@ -3,6 +3,8 @@ const router = Express.Router();
 import User from '../../models/user'
 import {responseClient,md5,MD5_SUFFIX} from '../util'
 
+
+router.use('/tags',require('./tags'));
 router.get('/getUsers',(req,res)=>{
     let skip =(req.query.pageNum-1)<0?0:(req.query.pageNum-1)*10;
     let responseData = {
