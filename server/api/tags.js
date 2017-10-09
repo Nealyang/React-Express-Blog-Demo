@@ -1,5 +1,6 @@
 import Express from 'express'
 const router = Express.Router();
+import Tags from '../../models/tags'
 
 //获取全部标签
 router.get('/getAllTags',function (req,res) {
