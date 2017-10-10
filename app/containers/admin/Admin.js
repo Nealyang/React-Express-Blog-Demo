@@ -63,7 +63,6 @@ class Admin extends Component {
         }else{
             return <NotFound/>
         }
-
     }
 
     componentWillReceiveProps() {

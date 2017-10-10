@@ -1,8 +1,7 @@
 import Express from 'express'
 const router = Express.Router();
 import User from '../../models/user'
-import {responseClient,md5,MD5_SUFFIX} from '../util'
-
+import {responseClient} from '../util'
 
 router.use('/tags',require('./tags'));
 router.get('/getUsers',(req,res)=>{
@@ -10,7 +9,6 @@ router.get('/getUsers',(req,res)=>{
     let responseData = {
         total:0,
         list:[]
-
     };
     User.count()
         .then(count=>{

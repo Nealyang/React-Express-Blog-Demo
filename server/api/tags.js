@@ -4,7 +4,11 @@ import Tags from '../../models/tags'
 
 //获取全部标签
 router.get('/getAllTags',function (req,res) {
-    res.send('getAllTags')
+    Tags.find(null).then(data=>{
+        res.send(data);
+    }).catch(err=>{
+        res.send('getAllTags')
+    })
 });
 
 //删除标签
