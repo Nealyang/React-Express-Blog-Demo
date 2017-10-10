@@ -1,6 +1,6 @@
 import {fork,call} from 'redux-saga/effects'
 import {loginFlow,registerFlow,user_auth} from './homeSaga'
-import {get_all_users_flow} from './adminManagerUsersSata'
+import {get_all_users_flow} from './adminManagerUsersSaga'
 export default function* rootSaga() {
     yield  fork(loginFlow);
     yield  fork(registerFlow);

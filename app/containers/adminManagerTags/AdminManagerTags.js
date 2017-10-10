@@ -17,8 +17,8 @@ class AdminManagerTags extends Component{
         }
     }
     handleClose = (removedTag) => {
+        //删除标签
         const tags = this.state.tags.filter(tag => tag !== removedTag);
-        console.log(tags);
         this.setState({ tags });
     };
 
@@ -31,6 +31,7 @@ class AdminManagerTags extends Component{
     };
 
     handleInputConfirm = () => {
+        // 添加标签
         const state = this.state;
         const inputValue = state.inputValue;
         let tags = state.tags;
@@ -47,14 +48,15 @@ class AdminManagerTags extends Component{
 
     saveInputRef = input => this.input = input;
     render(){
-        const { tags, inputVisible, inputValue } = this.state;
+        const { inputVisible, inputValue } = this.state;
+        const {tags} = this.props;
         return(
             <div>
-                <h2>标签管理</h2>
+                <h2 className={style.titleStyle}>标签管理</h2>
                 {tags.map((tag, index) => {
                     const isLongTag = tag.length > 20;
                     const tagElem = (
-                        <Tag key={tag} closable={index !== 0} afterClose={() => this.handleClose(tag)}>
+                        <Tag className={style.tagStyle} key={tag} closable={index !== 0} afterClose={() => this.handleClose(tag)}>
                             {isLongTag ? `${tag.slice(0, 20)}...` : tag}
                         </Tag>
                     );
@@ -62,20 +64,25 @@ class AdminManagerTags extends Component{
                 })}
                 {inputVisible && (
                     <Input
+                        className={style.tagStyle}
                         ref={this.saveInputRef}
                         type="text"
                         size="small"
-                        style={{ width: 78 }}
+                        style={{ width: 108 }}
                         value={inputValue}
                         onChange={this.handleInputChange}
                         onBlur={this.handleInputConfirm}
                         onPressEnter={this.handleInputConfirm}
                     />
                 )}
-                {!inputVisible && <Button size="small" type="dashed" onClick={this.showInput}>+ New Tag</Button>}
+                {!inputVisible && <Button className={style.tagStyle} size="small" type="dashed" onClick={this.showInput}>+ New Tag</Button>}
 
             </div>
         )
+    }
+
+    componentDidMount() {
+        this.props.getAllTags();
     }
 }
 

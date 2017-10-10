@@ -1,4 +1,4 @@
-const initialState = [];
+const initialState = ['首页'];
 
 export const actionTypes = {
     GET_ALL_TAGS:"GET_ALL_TAGS",
@@ -32,6 +32,6 @@ export function reducer(state=initialState,action) {
                 tag:action.data
             };
         default:
-            return state;
+            return  state;
     }
 }
