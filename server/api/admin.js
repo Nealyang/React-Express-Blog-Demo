@@ -3,6 +3,16 @@ const router = Express.Router();
 import User from '../../models/user'
 import {responseClient} from '../util'
 
+//admin请求后台验证
+
+router.use( (req,res,next) =>{
+    if(req.session.userInfo){
+        next()
+    }else{
+        res.send(responseClient(res,200,1,'身份信息已过期，请重新登录'));
+    }
+});
+
 router.use('/tags',require('./tags'));
 router.get('/getUsers',(req,res)=>{
     let skip =(req.query.pageNum-1)<0?0:(req.query.pageNum-1)*10;

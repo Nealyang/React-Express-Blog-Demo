@@ -18,8 +18,9 @@ class AdminManagerTags extends Component{
     }
     handleClose = (removedTag) => {
         //删除标签
-        const tags = this.state.tags.filter(tag => tag !== removedTag);
-        this.setState({ tags });
+        // const tags = this.state.tags.filter(tag => tag !== removedTag);
+        // this.setState({ tags });
+        this.props.deleteTag(removedTag)
     };
 
     showInput = () => {
@@ -32,15 +33,8 @@ class AdminManagerTags extends Component{
 
     handleInputConfirm = () => {
         // 添加标签
-        const state = this.state;
-        const inputValue = state.inputValue;
-        let tags = state.tags;
-        if (inputValue && tags.indexOf(inputValue) === -1) {
-            tags = [...tags, inputValue];
-        }
-        console.log(tags);
+        this.props.addTag(this.state.inputValue);
         this.setState({
-            tags,
             inputVisible: false,
             inputValue: '',
         });
@@ -56,7 +50,7 @@ class AdminManagerTags extends Component{
                 {tags.map((tag, index) => {
                     const isLongTag = tag.length > 20;
                     const tagElem = (
-                        <Tag className={style.tagStyle} key={tag} closable={index !== 0} afterClose={() => this.handleClose(tag)}>
+                        <Tag className={style.tagStyle} key={index} closable={index !== 0} afterClose={() => this.handleClose(tag)}>
                             {isLongTag ? `${tag.slice(0, 20)}...` : tag}
                         </Tag>
                     );

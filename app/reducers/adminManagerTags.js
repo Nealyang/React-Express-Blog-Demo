@@ -13,14 +13,16 @@ export const actions = {
             type:actionTypes.GET_ALL_TAGS
         }
     },
-    delete_tag:function () {
+    delete_tag:function (name) {
         return{
-            type:actionTypes.DELETE_TAG
+            type:actionTypes.DELETE_TAG,
+            name
         }
     },
-    add_tag:function () {
+    add_tag:function (name) {
         return{
-            type:actionTypes.ADD_TAG
+            type:actionTypes.ADD_TAG,
+            name
         }
     }
 };
@@ -28,10 +30,9 @@ export const actions = {
 export function reducer(state=initialState,action) {
     switch (action.type){
         case actionTypes.SET_TAGS:
-            return{
-                tag:action.data
-            };
+            return['首页',...action.data];
         default:
             return  state;
     }
 }
+
