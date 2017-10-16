@@ -3,7 +3,7 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import {actions} from '../../reducers/adminManagerUser'
-import {Table, Icon, Pagination} from 'antd';
+import {Table, Pagination} from 'antd';
 import style from './style.css'
 
 const {get_all_users} = actions;

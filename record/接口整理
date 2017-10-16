@@ -5,3 +5,7 @@
 /api/getAllTags   获取全部标签(分类)
 /api/admin/tags/addTag       添加标签
 /api/admin/tags/delTag       删除标签
+/api/admin/article/addArticle   添加文章
+/api/admin/article/modifiedArticle  修改文章
+/api/admin/article/delArticle   删除文章
+/api/getArticles                获取文章列表

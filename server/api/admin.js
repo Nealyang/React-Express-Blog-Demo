@@ -14,6 +14,7 @@ router.use( (req,res,next) =>{
 });
 
 router.use('/tags',require('./tags'));
+router.use('/article',require('./article'));
 router.get('/getUsers',(req,res)=>{
     let skip =(req.query.pageNum-1)<0?0:(req.query.pageNum-1)*10;
     let responseData = {
