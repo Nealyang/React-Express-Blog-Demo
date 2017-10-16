@@ -18,6 +18,7 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {actions} from '../reducers'
 import Admin from "./admin/Admin";
+import Front from './front/Front'
 import animationStyle from '../lib/animate.css'
 const {clear_msg, user_auth} = actions;
 
@@ -68,22 +69,22 @@ class AppIndex extends Component {
 }
 
 
-const Front = ({match}) => {
-    return (
-        <div>
-            <div className={`${animationStyle.animated} ${animationStyle.fadeInDown}`}>
-                <Banner/>
-                <Menus/>
-            </div>
-            <Switch>
-                <Route exact path={match.url} component={Home}/>
-                <Route path={`/detail/:id`} component={Detail}/>
-                <Route path={`/:tag`} component={Home}/>
-                <Route component={NotFound}/>
-            </Switch>
-        </div>
-    )
-};
+// const Front = ({match}) => {
+//     return (
+//         <div>
+//             <div className={`${animationStyle.animated} ${animationStyle.fadeInDown}`}>
+//                 <Banner/>
+//                 <Menus/>
+//             </div>
+//             <Switch>
+//                 <Route exact path={match.url} component={Home}/>
+//                 <Route path={`/detail/:id`} component={Detail}/>
+//                 <Route path={`/:tag`} component={Home}/>
+//                 <Route component={NotFound}/>
+//             </Switch>
+//         </div>
+//     )
+// };
 
 
 function mapStateToProps(state) {

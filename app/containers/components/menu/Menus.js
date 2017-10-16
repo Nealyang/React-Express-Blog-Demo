@@ -6,15 +6,17 @@ export default class Menus extends Component{
     constructor(props){
         super(props);
         this.state = {
-            current:"mail"
+            current:this.props.categories[0]
         }
     }
 
     handleClick = (e) => {
         console.log('click ', e);
+        let toPath = e.key === '首页'?'/':e.key;
         this.setState({
             current: e.key,
         });
+        this.props.history.push(toPath);
     };
 
     render(){
@@ -25,16 +27,21 @@ export default class Menus extends Component{
                 mode="horizontal"
                 className={style.MenuContainer}
             >
-                <Menu.Item key="mail">
-                    ReactJs
-                </Menu.Item>
-                <Menu.Item key="app">
-                    Html
-                </Menu.Item>
-                <Menu.Item key="alipay">
-                    Javascript
-                </Menu.Item>
+                {
+                    this.props.categories.map((item,index)=>(
+                        <Menu.Item key={item}>
+                            {item}
+                        </Menu.Item>
+                    ))
+                }
             </Menu>
         )
     }
+
+    componentDidMount() {
+        this.setState({
+            current:this.props.history.location.pathname.replace('\/','')||'首页'
+        })
+    }
+
 }

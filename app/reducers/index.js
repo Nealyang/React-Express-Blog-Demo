@@ -1,4 +1,4 @@
-import {reducer as home} from './homeReducer'
+import {reducer as front} from './frontReducer'
 import {combineReducers} from 'redux'
 import admin from './admin'
 const initialState = {
@@ -76,12 +76,8 @@ export function reducer(state = initialState, action) {
     }
 }
 
-// const front = combineReducers({
-//    // home
-// });
-
 export default combineReducers({
-    // front,
+    front,
     globalState: reducer,
     admin
 })

@@ -64,7 +64,6 @@ class Admin extends Component {
             return <NotFound/>
         }
     }
-
     componentWillReceiveProps() {
         this.props.change_location_admin(window.location.pathname.replace(/\/admin/, "")||'/');
     }

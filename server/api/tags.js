@@ -3,14 +3,6 @@ import Express from 'express'
 const router = Express.Router();
 import Tags from '../../models/tags'
 import {responseClient} from '../util'
-//获取全部标签
-router.get('/getAllTags', function (req, res) {
-    Tags.find(null,'name').then(data => {
-        responseClient(res, 200, 0, '请求成功', data);
-    }).catch(err => {
-        responseClient(res);
-    })
-});
 
 //删除标签
 router.get('/delTag', function (req, res) {

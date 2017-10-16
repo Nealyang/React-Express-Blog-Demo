@@ -12,8 +12,8 @@ import {bindActionCreators} from 'redux'
 import {actions} from '../../reducers/index'
 import {Logined} from "./components/logined/Logined";
 import anStyle from '../../lib/animate.css'
+import NotFound from "../../components/notFound/NotFound";
 
-const tags = ['html', 'javascript', 'css', 'reactJs', 'redux', 'vue', ''];
 
 class Home extends Component {
     constructor(props) {
@@ -22,10 +22,10 @@ class Home extends Component {
     }
 
     render() {
-        const {login,register} = this.props;
+        const {login,register,tags} = this.props;
         localStorage.setItem('userInfo',JSON.stringify(this.props.userInfo));
         return (
-            this.props.match.params.tag && (tags.indexOf(this.props.match.params.tag) === -1 || this.props.location.pathname.lastIndexOf('\/') > 0)
+            tags.length>1&&this.props.match.params.tag && (tags.indexOf(this.props.match.params.tag) === -1 || this.props.location.pathname.lastIndexOf('\/') > 0)
                 ?
                 <Redirect to='/404'/>
                 :
@@ -56,7 +56,8 @@ Home.propsTypes = {
 
 function mapStateToProps(state) {
     return{
-        userInfo:state.globalState.userInfo
+        userInfo:state.globalState.userInfo,
+        tags:state.admin.tags
     }
 }
 

@@ -18,8 +18,6 @@ class AdminManagerTags extends Component{
     }
     handleClose = (removedTag) => {
         //删除标签
-        // const tags = this.state.tags.filter(tag => tag !== removedTag);
-        // this.setState({ tags });
         this.props.deleteTag(removedTag)
     };
 
