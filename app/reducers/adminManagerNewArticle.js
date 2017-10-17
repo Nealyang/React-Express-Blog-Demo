@@ -1,13 +1,13 @@
 const initialState={
     title:'',
     content:'',
-    time:'',
     tags:[]
 };
 export const actionTypes = {
     UPDATING_TITLE:"UPDATING_TITLE",
     UPDATING_CONTENT:"UPDATING_CONTENT",
     UPDATING_TAGS:"UPDATING_TAGS",
+    SAVE_ARTICLE:"SAVE_ARTICLE"
 };
 export const actions = {
     update_title:function (title) {
@@ -26,6 +26,12 @@ export const actions = {
         return{
             type:actionTypes.UPDATING_TAGS,
             tags
+        }
+    },
+    save_article:function (data) {
+        return{
+            type:actionTypes.SAVE_ARTICLE,
+            data
         }
     }
 };

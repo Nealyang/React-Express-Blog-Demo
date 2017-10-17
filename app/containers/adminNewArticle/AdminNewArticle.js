@@ -8,15 +8,10 @@ import reactRenderer from 'remark-react'
 import {Input, Select, Button, Modal} from 'antd';
 import {actions} from "../../reducers/adminManagerNewArticle";
 import {actions as tagActions} from "../../reducers/adminManagerTags";
-
+import dateFormat from 'dateformat'
 const {get_all_tags} = tagActions;
-const {update_content, update_tags, update_title} = actions;
+const {update_content, update_tags, update_title,save_article} = actions;
 const Option = Select.Option;
-
-const children = [];
-for (let i = 10; i < 36; i++) {
-    children.push(<Option key={i.toString(36) + i}>{i.toString(36) + i}</Option>);
-}
 
 class AdminNewArticle extends Component {
     constructor(props) {
@@ -34,34 +29,46 @@ class AdminNewArticle extends Component {
     }
 
     //标题输入框
-    titleOnChange = (e) => {
+    titleOnChange (e){
         this.props.update_title(e.target.value)
     };
 
     //选择标签
-    selectTags = (value) => {
+    selectTags(value){
         this.props.update_tags(value)
     };
 
     //预览
-    preView = () => {
+    preView(){
         this.setState({
             modalVisible: true
         })
     };
 
     //发表
-    publishArticle = () => {
-        alert('发表')
+    publishArticle () {
+        let articleData = {};
+        articleData.title = this.props.title;
+        articleData.content = this.props.content;
+        articleData.tags = this.props.tags;
+        articleData.time = dateFormat(new Date(),'yyyy-mm-dd HH:MM:ss');
+        articleData.isPublish = true;
+        this.props.save_article(articleData);
     };
 
     //保存
-    saveArticle = () => {
-        alert('保存')
+    saveArticle(){
+        let articleData = {};
+        articleData.title = this.props.title;
+        articleData.content = this.props.content;
+        articleData.tags = this.props.tags;
+        articleData.time = dateFormat(new Date(),'yyyy-mm-dd HH:MM:ss');
+        articleData.isPublish = false;
+        this.props.save_article(articleData);
     };
 
     //handleOk
-    handleOk = () => {
+    handleOk(){
         this.setState({
             modalVisible: false
         })
@@ -78,7 +85,7 @@ class AdminNewArticle extends Component {
                         placeholder={'请输入文章标题'}
                         type='text'
                         value={this.props.title}
-                        onChange={this.titleOnChange}/>
+                        onChange={this.titleOnChange.bind(this)}/>
                     <span className={style.subTitle}>正文</span>
                     <textarea
                         className={style.textArea}
@@ -89,7 +96,7 @@ class AdminNewArticle extends Component {
                         mode="multiple"
                         className={style.titleInput}
                         placeholder="请选择分类"
-                        onChange={this.selectTags}
+                        onChange={this.selectTags.bind(this)}
                         defaultValue={this.props.tags}
                     >
                         {
@@ -102,17 +109,17 @@ class AdminNewArticle extends Component {
                     </Select>
 
                     <div className={style.bottomContainer}>
-                        <Button type="primary" onClick={this.publishArticle} className={style.buttonStyle}>发布</Button>
-                        <Button type="primary" onClick={this.saveArticle} className={style.buttonStyle}>保存</Button>
-                        <Button type="primary" onClick={this.preView} className={style.buttonStyle}>预览</Button>
+                        <Button type="primary" onClick={this.publishArticle.bind(this)} className={style.buttonStyle}>发布</Button>
+                        <Button type="primary" onClick={this.saveArticle.bind(this)} className={style.buttonStyle}>保存</Button>
+                        <Button type="primary" onClick={this.preView.bind(this)} className={style.buttonStyle}>预览</Button>
                     </div>
                 </div>
                 <Modal
                     visible={this.state.modalVisible}
                     title="文章预览"
-                    onOk={this.handleOk}
+                    onOk={this.handleOk.bind(this)}
                     width={'900px'}
-                    onCancel={this.handleOk}
+                    onCancel={this.handleOk.bind(this)}
                     footer={null}
                 >
                     <div className={style.modalContainer}>
@@ -166,7 +173,8 @@ function mapDispatchToProps(dispatch) {
         update_tags: bindActionCreators(update_tags, dispatch),
         update_title: bindActionCreators(update_title, dispatch),
         update_content: bindActionCreators(update_content, dispatch),
-        get_all_tags: bindActionCreators(get_all_tags, dispatch)
+        get_all_tags: bindActionCreators(get_all_tags, dispatch),
+        save_article:bindActionCreators(save_article,dispatch)
     }
 }
 
