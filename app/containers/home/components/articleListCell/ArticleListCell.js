@@ -5,7 +5,7 @@ import test2 from '../../../../../static/2.jpg'
 import test3 from '../../../../../static/3.jpg'
 import test4 from '../../../../../static/4.jpg'
 
-export  const ArticleListCell = (props)=>(
+export const ArticleListCell = (props)=>(
     <div className={`${style.container} `}>
         <div>
             {

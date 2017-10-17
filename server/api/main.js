@@ -2,12 +2,13 @@ import Express from 'express'
 import Tags from '../../models/tags'
 import Article from '../../models/article'
 import {responseClient} from '../util'
+
 const router = Express.Router();
 
-router.use('/user',require('./user'));
+router.use('/user', require('./user'));
 //获取全部标签
 router.get('/getAllTags', function (req, res) {
-    Tags.find(null,'name').then(data => {
+    Tags.find(null, 'name').then(data => {
         responseClient(res, 200, 0, '请求成功', data);
     }).catch(err => {
         responseClient(res);
@@ -15,9 +16,34 @@ router.get('/getAllTags', function (req, res) {
 });
 
 //获取文章
-router.get('/getArticles',function (req,res) {
-   let tag = req.query.tag;
-   responseClient(res,200,0,'success',tag);
+router.get('/getArticles', function (req, res) {
+    let tag = req.query.tag || null;
+    let isPublish = req.query.isPublish;
+    let searchCondition = {
+        isPublish,
+    };
+    if(tag){
+        searchCondition.tags = tag;
+    }
+    let skip = (req.query.pageNum - 1) < 0 ? 0 : (req.query.pageNum - 1) * 10;
+    let responseData = {
+        total: 0,
+        list: []
+    };
+    Article.count()
+        .then(count=>{
+            responseData.total = count;
+            console.log(searchCondition);
+            Article.find(searchCondition,'_id title author viewCount commentCount time coverImg',{skip:skip,limit:10})
+                .then(result=>{
+                    responseData.list = result;
+                    responseClient(res,200,0,'success',responseData);
+                }).cancel(err=>{
+                    throw err
+            })
+        }).cancel(err=>{
+            responseClient(res);
+    });
 });
 
 module.exports = router;

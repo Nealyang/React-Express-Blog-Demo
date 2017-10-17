@@ -25,7 +25,7 @@ router.post('/addArticle', function (req, res) {
         time,
         author,
         coverImg,
-        tags
+        tags:tags.split(',')
     });
     tempArticle.save().then(data=>{
         responseClient(res,200,0,'保存成功',data)

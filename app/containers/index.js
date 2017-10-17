@@ -69,24 +69,6 @@ class AppIndex extends Component {
 }
 
 
-// const Front = ({match}) => {
-//     return (
-//         <div>
-//             <div className={`${animationStyle.animated} ${animationStyle.fadeInDown}`}>
-//                 <Banner/>
-//                 <Menus/>
-//             </div>
-//             <Switch>
-//                 <Route exact path={match.url} component={Home}/>
-//                 <Route path={`/detail/:id`} component={Detail}/>
-//                 <Route path={`/:tag`} component={Home}/>
-//                 <Route component={NotFound}/>
-//             </Switch>
-//         </div>
-//     )
-// };
-
-
 function mapStateToProps(state) {
     return {
         notification: state.globalState.msg,

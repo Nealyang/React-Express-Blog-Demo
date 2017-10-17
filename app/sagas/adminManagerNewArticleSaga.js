@@ -17,7 +17,6 @@ export function* saveArticle (data) {
 export function* saveArticleFlow () {
     while (true){
         let request = yield take(NewArticleActionTypes.SAVE_ARTICLE);
-        console.log(request);
         if(request.data.isPublish){
             if(request.data.title === ''){
                 yield put({type: IndexActionTypes.SET_MESSAGE, msgContent: '请输入文章标题', msgType: 0});
