@@ -141,10 +141,10 @@ class AdminNewArticle extends Component {
 }
 
 AdminNewArticle.propsTypes = {
-    title: PropTypes.String,
-    content: PropTypes.String,
-    tags: PropTypes.Array,
-    tagsBase: PropTypes.Array
+    title: PropTypes.string,
+    content: PropTypes.string,
+    tags: PropTypes.array,
+    tagsBase: PropTypes.array
 };
 
 AdminNewArticle.defaultProps = {

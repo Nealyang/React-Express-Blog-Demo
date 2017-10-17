@@ -11,7 +11,7 @@ export const actionTypes = {
 };
 
 export const actions = {
-    get_article_list: function (tag) {
+    get_article_list: function (tag='') {
         return {
             type: actionTypes.GET_ARTICLE_LIST,
             tag

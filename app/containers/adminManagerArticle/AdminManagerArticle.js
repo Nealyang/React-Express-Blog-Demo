@@ -6,8 +6,10 @@ import style from './style.css'
 import {ManagerArticleCell} from "./components/ManagerArticleCell";
 import { Pagination } from 'antd';
 import {actions} from '../../reducers/adminManagerArticle'
+import Admin from "../admin/Admin";
 const {get_article_list,delete_article,edit_article} = actions;
 class AdminManagerArticle extends Component{
+
     constructor(props){
         super(props);
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
@@ -18,28 +20,46 @@ class AdminManagerArticle extends Component{
             <div>
                 <h2>文章管理</h2>
                 <div className={style.articleListContainer}>
-                    <ManagerArticleCell/>
-                    <ManagerArticleCell/>
-                    <ManagerArticleCell/>
-                    <ManagerArticleCell/>
-                    <ManagerArticleCell/>
-                    <ManagerArticleCell/>
-                    <ManagerArticleCell/>
-                    <ManagerArticleCell/>
-                    <ManagerArticleCell/>
-                    <ManagerArticleCell/>
+                    {
+                        this.props.articleList.map((item,index)=>(
+                            <ManagerArticleCell key={index} data={item}/>
+                        ))
+                    }
                 </div>
                 <div  className={style.paginationStyle}>
-                    <Pagination defaultCurrent={6} total={500} />
+                    <Pagination
+                        onChange={(pageNum)=>{
+                            this.props.get_article_list(pageNum);
+                        }}
+                        current={this.props.pageNum}
+                        total={this.props.total}
+                    />
                 </div>
             </div>
         )
     }
+
+    componentDidMount() {
+        this.props.get_article_list()
+    }
 }
 
+AdminManagerArticle.defaultProps={
+    articleList:[],
+    pageNum:1,
+    total:0
+};
+
+AdminManagerArticle.defaultProps = {
+    articleList:PropTypes.array,
+    pageNum:PropTypes.number,
+    total:PropTypes.number
+}
 function mapStateToProps(state) {
     return{
-        articleList:state.admin.articles.articleList
+        articleList:state.admin.articles.articleList,
+        pageNum:state.admin.articles.pageNum,
+        total:state.admin.articles.total
     }
 }
 

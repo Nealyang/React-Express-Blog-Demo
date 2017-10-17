@@ -35,4 +35,18 @@ router.post('/addArticle', function (req, res) {
     });
 });
 
+router.get('/delArticle',(req,res)=>{
+    let id = req.query.id;
+    Article.remove({_id:id})
+        .then(result=>{
+            if(result.result.n === 1){
+                responseClient(res,200,0,'删除成功!')
+            }else{
+                responseClient(res,200,1,'文章不存在');
+            }
+        }).cancel(err=>{
+            responseClient(res);
+    })
+});
+
 module.exports = router;

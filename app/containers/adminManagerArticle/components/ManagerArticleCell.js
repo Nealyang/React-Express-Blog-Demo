@@ -4,17 +4,17 @@ import {Button} from 'antd'
 export const ManagerArticleCell = (props)=>(
     <div className={style.cellContainer}>
         <div className={style.cellAboutArticle}>
-            <p className={style.articleTitle}>这是一个文章标题</p>
+            <p className={style.articleTitle}>{props.data.title}</p>
             <p className={style.articleInfo}>
-                <span>作者:Nealyang</span>
-                <span>阅读数:23</span>
-                <span>评论数:2</span>
-                <span>发表时间:2017-09-11 21:12:28</span>
+                <span>作者:{props.data.author}</span>
+                <span>阅读数:{props.data.viewCount}</span>
+                <span>评论数:{props.data.commentCount}</span>
+                <span>发表时间:{props.data.time}</span>
             </p>
         </div>
         <div className={style.cellState}>
             <span>
-                已发布
+                {props.data.isPublish?'已发布':'草稿'}
             </span>
         </div>
         <div className={style.cellOperation}>
