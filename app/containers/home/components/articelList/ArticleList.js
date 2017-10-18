@@ -11,10 +11,11 @@ export default class ArticleList extends Component{
     render(){
         return(
             <div>
-                <ArticleListCell tag={1}/>
-                <ArticleListCell tag={2}/>
-                <ArticleListCell tag={3}/>
-                <ArticleListCell tag={4}/>
+                {
+                    this.props.data.map((item,index)=>(
+                        <ArticleListCell key={index} data={item}/>
+                    ))
+                }
             </div>
         )
     }

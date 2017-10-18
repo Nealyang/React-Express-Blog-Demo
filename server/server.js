@@ -16,6 +16,7 @@ app.use('/api',(req,res)=>{
 
 app.use('/', connectHistoryApiFallback());
 app.use('/',Express.static(path.join(__dirname,"..",'build')));
+app.use('/',Express.static(path.join(__dirname,"..",'static')));
 
 
 const targetUrl = `http://${config.apiHost}:${config.apiPort}`;

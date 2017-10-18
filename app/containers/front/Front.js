@@ -12,8 +12,10 @@ import Menus from "../components/menu/Menus";
 import NotFound from "../../components/notFound/NotFound";
 import {bindActionCreators} from 'redux'
 import {actions} from '../../reducers/adminManagerTags'
+import {actions as FrontActinos} from '../../reducers/frontReducer'
 
 const {get_all_tags} = actions;
+const {get_article_list} = FrontActinos;
 
 class Front extends Component{
     constructor(props){
@@ -26,7 +28,7 @@ class Front extends Component{
             <div>
                 <div className={`${animationStyle.animated} ${animationStyle.fadeInDown}`}>
                     <Banner/>
-                    <Menus categories={this.props.categories} history={this.props.history}/>
+                    <Menus getArticleList={(tag)=>this.props.get_article_list(tag,1)} categories={this.props.categories} history={this.props.history}/>
                 </div>
                 <Switch>
                     <Route exact path={url} component={Home}/>
@@ -58,7 +60,8 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch) {
     return{
-        get_all_tags:bindActionCreators(get_all_tags,dispatch)
+        get_all_tags:bindActionCreators(get_all_tags,dispatch),
+        get_article_list:bindActionCreators(get_article_list,dispatch)
     }
 }
 export default connect(

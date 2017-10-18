@@ -1,4 +1,4 @@
-import {take,call,put} from 'redux-saga/effects'
+import {take,call,put,select} from 'redux-saga/effects'
 import {get, post} from '../fetch/fetch'
 import {actionsTypes as IndexActionTypes} from '../reducers'
 import {actionTypes as ArticleTypes} from '../reducers/adminManagerArticle'
@@ -22,6 +22,38 @@ export function* getArticleListFlow () {
             if (res.code === 0) {
                 res.data.pageNum = req.pageNum;
                 yield put({type:ArticleTypes.ADMIN_RESPONSE_GET_ARTICLE_LIST,data:res.data})
+            } else if (res.message === '身份信息已过期，请重新登录') {
+                yield put({type: IndexActionTypes.SET_MESSAGE, msgContent: res.message, msgType: 0});
+                setTimeout(function () {
+                    location.replace('/');
+                }, 1000);
+            } else {
+                yield put({type: IndexActionTypes.SET_MESSAGE, msgContent: res.message, msgType: 0});
+            }
+        }
+    }
+}
+
+export function* deleteArticle (id) {
+    yield put({type: IndexActionTypes.FETCH_START});
+    try {
+        return yield call(get, `/admin/article/delArticle?id=${id}`);
+    } catch (err) {
+        yield put({type: IndexActionTypes.SET_MESSAGE, msgContent: '网络请求错误', msgType: 0});
+    } finally {
+        yield put({type: IndexActionTypes.FETCH_END})
+    }
+}
+
+export function* deleteArticleFlow () {
+    while(true){
+        let req = yield take(ArticleTypes.ADMIN_DELETE_ARTICLE);
+        const pageNum = yield select(state=>state.admin.articles.pageNum);
+        let res = yield call(deleteArticle,req.id);
+        if(res){
+            if (res.code === 0) {
+                yield put({type: IndexActionTypes.SET_MESSAGE, msgContent: '删除成功!', msgType: 1});
+                yield put({type:ArticleTypes.ADMIN_GET_ARTICLE_LIST,pageNum})
             } else if (res.message === '身份信息已过期，请重新登录') {
                 yield put({type: IndexActionTypes.SET_MESSAGE, msgContent: res.message, msgType: 0});
                 setTimeout(function () {

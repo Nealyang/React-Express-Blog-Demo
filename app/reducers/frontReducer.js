@@ -1,7 +1,9 @@
 const initialState = {
     category: [],
     articleList: [],
-    articleDetail: {}
+    articleDetail: {},
+    pageNum:1,
+    total:0
 };
 export const actionTypes = {
     GET_ARTICLE_LIST: "GET_ARTICLE_LIST",
@@ -11,10 +13,11 @@ export const actionTypes = {
 };
 
 export const actions = {
-    get_article_list: function (tag='') {
+    get_article_list: function (tag='',pageNum=1) {
         return {
             type: actionTypes.GET_ARTICLE_LIST,
-            tag
+            tag,
+            pageNum
         }
     },
     get_article_detail:function (id) {
@@ -29,7 +32,7 @@ export function reducer(state = initialState,action) {
     switch (action.type){
         case actionTypes.RESPONSE_ARTICLE_LIST:
             return {
-                ...state,articleList:[...action.data]
+                ...state,articleList:[...action.data.list],pageNum:action.data.pageNum,total:action.data.total
             };
         case actionTypes.GET_ARTICLE_DETAIL:
             return{

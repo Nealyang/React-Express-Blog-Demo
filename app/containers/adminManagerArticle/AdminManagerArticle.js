@@ -22,12 +22,13 @@ class AdminManagerArticle extends Component{
                 <div className={style.articleListContainer}>
                     {
                         this.props.articleList.map((item,index)=>(
-                            <ManagerArticleCell key={index} data={item}/>
+                            <ManagerArticleCell delete={(id)=>this.props.delete_article(id)} key={index} data={item}/>
                         ))
                     }
                 </div>
                 <div  className={style.paginationStyle}>
                     <Pagination
+                        defaultPageSize={5}
                         onChange={(pageNum)=>{
                             this.props.get_article_list(pageNum);
                         }}

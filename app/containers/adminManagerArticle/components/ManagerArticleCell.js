@@ -19,7 +19,7 @@ export const ManagerArticleCell = (props)=>(
         </div>
         <div className={style.cellOperation}>
             <Button type='primary' icon="edit">编辑</Button>
-            <Button type='primary' icon="delete">删除</Button>
+            <Button type='primary' icon="delete" onClick={()=>props.delete(props.data._id)}>删除</Button>
             <Button type='primary' icon="eye-o">查看</Button>
         </div>
     </div>

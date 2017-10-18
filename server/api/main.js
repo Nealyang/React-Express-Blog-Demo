@@ -28,15 +28,15 @@ router.get('/getArticles', function (req, res) {
     if(isPublish === 'false'){
         searchCondition = null
     }
-    let skip = (req.query.pageNum - 1) < 0 ? 0 : (req.query.pageNum - 1) * 10;
+    let skip = (req.query.pageNum - 1) < 0 ? 0 : (req.query.pageNum - 1) * 5;
     let responseData = {
         total: 0,
         list: []
     };
-    Article.count()
+    Article.count(searchCondition)
         .then(count=>{
             responseData.total = count;
-            Article.find(searchCondition,'_id title isPublish author viewCount commentCount time coverImg',{skip:skip,limit:10})
+            Article.find(searchCondition,'_id title isPublish author viewCount commentCount time coverImg',{skip:skip,limit:5})
                 .then(result=>{
                     responseData.list = result;
                     responseClient(res,200,0,'success',responseData);
