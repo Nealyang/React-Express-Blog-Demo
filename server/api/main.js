@@ -22,10 +22,10 @@ router.get('/getArticles', function (req, res) {
     let searchCondition = {
         isPublish,
     };
-    if(tag){
+    if (tag) {
         searchCondition.tags = tag;
     }
-    if(isPublish === 'false'){
+    if (isPublish === 'false') {
         searchCondition = null
     }
     let skip = (req.query.pageNum - 1) < 0 ? 0 : (req.query.pageNum - 1) * 5;
@@ -34,18 +34,40 @@ router.get('/getArticles', function (req, res) {
         list: []
     };
     Article.count(searchCondition)
-        .then(count=>{
+        .then(count => {
             responseData.total = count;
-            Article.find(searchCondition,'_id title isPublish author viewCount commentCount time coverImg',{skip:skip,limit:5})
-                .then(result=>{
-                    responseData.list = result;
-                    responseClient(res,200,0,'success',responseData);
-                }).cancel(err=>{
-                    throw err
+            Article.find(searchCondition, '_id title isPublish author viewCount commentCount time coverImg', {
+                skip: skip,
+                limit: 5
             })
-        }).cancel(err=>{
-            responseClient(res);
+                .then(result => {
+                    responseData.list = result;
+                    responseClient(res, 200, 0, 'success', responseData);
+                }).cancel(err => {
+                throw err
+            })
+        }).cancel(err => {
+        responseClient(res);
     });
+});
+
+//获取文章详情
+router.get('/getArticleDetail', (req, res) => {
+    let _id = req.query.id;
+   Article.findOne({_id})
+       .then(data=>{
+           data.viewCount = data.viewCount+1;
+           Article.update({_id},{viewCount:data.viewCount})
+               .then(result=>{
+                   console.log(result);
+                   responseClient(res,200,0,'success',data);
+               }).cancel(err=>{
+                   throw err;
+           })
+
+       }).cancel(err => {
+       responseClient(res);
+   });
 });
 
 module.exports = router;

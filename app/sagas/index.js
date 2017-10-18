@@ -4,7 +4,7 @@ import {get_all_users_flow} from './adminManagerUsersSaga'
 import {getAllTagsFlow, addTagFlow, delTagFlow} from './adminManagerTagsSaga'
 import {saveArticleFlow} from './adminManagerNewArticleSaga'
 import {getArticleListFlow,deleteArticleFlow} from './adminManagerArticleSaga'
-import {getArticlesListFlow} from './frontSaga'
+import {getArticlesListFlow,getArticleDetailFlow} from './frontSaga'
 
 export default function* rootSaga() {
     yield  fork(loginFlow);
@@ -18,4 +18,5 @@ export default function* rootSaga() {
     yield fork(getArticleListFlow);
     yield fork(deleteArticleFlow);
     yield fork(getArticlesListFlow);
+    yield fork(getArticleDetailFlow);
 }

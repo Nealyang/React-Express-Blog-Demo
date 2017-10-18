@@ -13,7 +13,7 @@ export default class ArticleList extends Component{
             <div>
                 {
                     this.props.data.map((item,index)=>(
-                        <ArticleListCell key={index} data={item}/>
+                        <ArticleListCell getArticleDetail={this.props.getArticleDetail} history={this.props.history} key={index} data={item}/>
                     ))
                 }
             </div>

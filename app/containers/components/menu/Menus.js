@@ -17,7 +17,7 @@ export default class Menus extends Component{
         }else{
             this.props.getArticleList(e.key);
         }
-        let toPath = e.key === '首页'?'/':e.key;
+        let toPath = e.key === '首页'?'/':'/'+e.key;
         this.setState({
             current: e.key,
         });

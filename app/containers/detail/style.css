@@ -1,0 +1,36 @@
+.container{
+    background: #fff;
+    padding:10px;
+}
+.articleInfo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin:10px 0;
+}
+.articleInfo span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    font-size: 12px;
+}
+.articleInfo span img{
+    margin-right: 5px;
+}
+.authorImg{
+    width: 20px;
+}
+.content{
+    line-height: 30px;
+    font-size: 13px;
+}
+.content pre{
+    background: #e9e9e9;
+    margin:10px 0;
+    overflow: scroll;
+}
+.content img{
+    max-width: 100%;
+    height: auto;
+}

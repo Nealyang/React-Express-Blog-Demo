@@ -4,9 +4,10 @@ import test1 from '../../../../../static/1.jpg'
 import test2 from '../../../../../static/2.jpg'
 import test3 from '../../../../../static/3.jpg'
 import test4 from '../../../../../static/4.jpg'
+import {Link} from 'react-router-dom'
 
 export const ArticleListCell = (props)=>(
-    <div className={`${style.container} `}>
+    <div className={`${style.container} `} onClick={()=>{props.history.push(`/detail/${props.data._id}`,{id:props.data._id});props.getArticleDetail(props.data._id)}}>
         <div>
             <img src={props.data.coverImg} alt=""/>
         </div>

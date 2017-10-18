@@ -30,6 +30,7 @@
     "cookie-parser": "^1.4.3",
     "cookies": "^0.7.1",
     "dateformat": "^3.0.2",
+    "echarts-for-react": "^2.0.0",
     "express": "^4.15.4",
     "express-session": "^1.15.5",
     "http-proxy": "^1.16.2",
