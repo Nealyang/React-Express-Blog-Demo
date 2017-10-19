@@ -41,6 +41,14 @@
 - 首页
 ![index](./record/2017-09-28%2010_25_45.gif)
 
+- 查看文章详情
+![detail](./record/checkArticleDetail.gif)
+
+- 发表文章
+![newArticle](./record/new_article.gif)
+
+
+
 ## 项目介绍
 当然这是一个全栈的开源demo，在此之前写过一个[模仿大众点评的Demo](https://github.com/Nealyang/React-Fullstack-Dianping-Demo),有兄弟反应说应该加点注释。
 因为实在不想回头再麻烦，就想在这个demo中再加。
