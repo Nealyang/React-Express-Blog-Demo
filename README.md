@@ -76,6 +76,21 @@
 - [x] [实战react技术栈+express前后端博客项目（13）-- pm2的使用说明](./record/doc/12_pm2的使用说明.md)
 - [x] [实战react技术栈+express前后端博客项目（14）-- 收工](./record/doc/13_收工.md)
 
+## 环境
+
+```
+node @7.9.0
+db @3.4.0
+```
+
+## 运行
+
+    git clone git@github.com:Nealyang/React-Express-Blog-Demo.git
+    
+    npm i
+    
+    npm start
+
 ## 交流
 
 ***扫码关注我的个人微信公众号，分享更多原创文章。点击交流学习加我微信、qq群。一起学习，一起进步***
