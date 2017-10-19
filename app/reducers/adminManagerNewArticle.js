@@ -1,13 +1,16 @@
 const initialState={
     title:'',
     content:'',
-    tags:[]
+    tags:[],
+    id:''
 };
 export const actionTypes = {
     UPDATING_TITLE:"UPDATING_TITLE",
     UPDATING_CONTENT:"UPDATING_CONTENT",
     UPDATING_TAGS:"UPDATING_TAGS",
-    SAVE_ARTICLE:"SAVE_ARTICLE"
+    SAVE_ARTICLE:"SAVE_ARTICLE",
+    CLEAR_ARTICLE_ID:"CLEAR_ARTICLE_ID",
+    SET_ARTICLE_ID:"SET_ARTICLE_ID"
 };
 export const actions = {
     update_title:function (title) {
@@ -32,6 +35,17 @@ export const actions = {
         return{
             type:actionTypes.SAVE_ARTICLE,
             data
+        }
+    },
+    set_article_id:function (id) {
+        return{
+            type:actionTypes.SET_ARTICLE_ID,
+            id
+        }
+    },
+    clear_article_id:function () {
+        return{
+            type:actionTypes.CLEAR_ARTICLE_ID
         }
     }
 };
