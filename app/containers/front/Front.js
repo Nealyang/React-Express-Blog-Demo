@@ -1,6 +1,5 @@
 import React,{Component,PropTypes} from 'react'
 import {connect} from 'react-redux'
-import animationStyle from '../../lib/animate.css'
 import {Detail} from '../detail'
 import {Home} from '../home'
 import style from './style.css'
@@ -17,7 +16,6 @@ import {actions as FrontActinos} from '../../reducers/frontReducer'
 import Login from "../home/components/login/Login";
 import {Logined} from "../home/components/logined/Logined";
 import {actions as IndexActions} from '../../reducers/index'
-import anStyle from '../../lib/animate.css'
 const {get_all_tags} = actions;
 const {get_article_list} = FrontActinos;
 
@@ -31,7 +29,7 @@ class Front extends Component{
         const {login, register} = this.props;
         return(
             <div>
-                <div className={`${animationStyle.animated} ${animationStyle.fadeInDown}`}>
+                <div>
                     <Banner/>
                     <Menus getArticleList={(tag)=>this.props.get_article_list(tag,1)} categories={this.props.categories} history={this.props.history}/>
                 </div>
@@ -45,7 +43,7 @@ class Front extends Component{
                                 <Route component={NotFound}/>
                             </Switch>
                         </div>
-                        <div className={`${style.loginContainer} ${anStyle.animated} ${anStyle.fadeInRight}`}>
+                        <div className={`${style.loginContainer}`}>
                             {this.props.userInfo.userId ?
                                 <Logined history={this.props.history} userInfo={this.props.userInfo}/> :
                                 <Login login={login} register={register}/>}

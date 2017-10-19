@@ -50,7 +50,6 @@ router.get('/getArticles', function (req, res) {
         responseClient(res);
     });
 });
-
 //获取文章详情
 router.get('/getArticleDetail', (req, res) => {
     let _id = req.query.id;
@@ -59,7 +58,6 @@ router.get('/getArticleDetail', (req, res) => {
            data.viewCount = data.viewCount+1;
            Article.update({_id},{viewCount:data.viewCount})
                .then(result=>{
-                   console.log(result);
                    responseClient(res,200,0,'success',data);
                }).cancel(err=>{
                    throw err;

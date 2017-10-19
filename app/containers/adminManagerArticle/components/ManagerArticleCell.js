@@ -20,7 +20,7 @@ export const ManagerArticleCell = (props)=>(
         <div className={style.cellOperation}>
             <Button type='primary' icon="edit">编辑</Button>
             <Button type='primary' icon="delete" onClick={()=>props.delete(props.data._id)}>删除</Button>
-            <Button type='primary' icon="eye-o">查看</Button>
+            <Button type='primary' icon="eye-o" onClick={()=>{props.history.push(`/detail/${props.data._id}`,{id:props.data._id});props.getArticleDetail(props.data._id)}}>查看</Button>
         </div>
     </div>
 );

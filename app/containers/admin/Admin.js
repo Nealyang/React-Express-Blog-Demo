@@ -27,13 +27,6 @@ class Admin extends Component {
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
     }
 
-    componentWillMount() {
-        let userInfo = JSON.parse(localStorage.getItem('userInfo'));
-        if(userInfo&&userInfo.userType !== 'admin'){
-            this.props.history.replace('/');
-        }
-    }
-
     render() {
         const {url} = this.props.match;
         if(this.props.userInfo&&this.props.userInfo.userType){
