@@ -46,6 +46,9 @@
 - 发表文章
 ![newArticle](./record/new_article.gif)
 
+- 修改文章
+![modifiedArticle](./record/modifiedArticle.gif)
+
 
 
 ## 项目介绍
