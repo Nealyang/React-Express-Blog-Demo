@@ -98,7 +98,7 @@ class AdminNewArticle extends Component {
                         className={style.titleInput}
                         placeholder="请选择分类"
                         onChange={this.selectTags.bind(this)}
-                        defaultValue={this.props.tags}
+                        value={this.props.tags}
                     >
                         {
                             this.props.tagsBase.map((item) => (

@@ -25,6 +25,7 @@ class AdminManagerArticle extends Component{
                     {
                         this.props.articleList.map((item,index)=>(
                             <ManagerArticleCell
+                                edit_article={(id)=>this.props.edit_article(id)}
                                 history={this.props.history}
                                 getArticleDetail={(id)=>this.props.get_article_detail(id)}
                                 delete={(id)=>this.props.delete_article(id)}

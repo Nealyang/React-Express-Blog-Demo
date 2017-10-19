@@ -9,7 +9,6 @@ export const actionTypes = {
     UPDATING_CONTENT:"UPDATING_CONTENT",
     UPDATING_TAGS:"UPDATING_TAGS",
     SAVE_ARTICLE:"SAVE_ARTICLE",
-    CLEAR_ARTICLE_ID:"CLEAR_ARTICLE_ID",
     SET_ARTICLE_ID:"SET_ARTICLE_ID"
 };
 export const actions = {
@@ -36,17 +35,6 @@ export const actions = {
             type:actionTypes.SAVE_ARTICLE,
             data
         }
-    },
-    set_article_id:function (id) {
-        return{
-            type:actionTypes.SET_ARTICLE_ID,
-            id
-        }
-    },
-    clear_article_id:function () {
-        return{
-            type:actionTypes.CLEAR_ARTICLE_ID
-        }
     }
 };
 
@@ -64,6 +52,10 @@ export function reducer(state=initialState,action) {
         case actionTypes.UPDATING_TAGS:
             return{
                 ...state,tags:action.tags
+            };
+        case actionTypes.SET_ARTICLE_ID:
+            return{
+                ...state,id:action.id
             };
         default:
             return state;

@@ -35,6 +35,25 @@ router.post('/addArticle', function (req, res) {
     });
 });
 
+router.post('/updateArticle',(req,res)=>{
+    const {
+        title,
+        content,
+        time,
+        tags,
+        isPublish,
+        id
+    } = req.body;
+    Article.update({_id:id},{title,content,time,tags:tags.split(','),isPublish})
+        .then(result=>{
+            console.log(result);
+            responseClient(res,200,0,'更新成功',result)
+        }).cancel(err=>{
+        console.log(err);
+        responseClient(res);
+    });
+});
+
 router.get('/delArticle',(req,res)=>{
     let id = req.query.id;
     Article.remove({_id:id})

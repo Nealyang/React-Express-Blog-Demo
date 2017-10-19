@@ -2,6 +2,7 @@ import {take,call,put,select} from 'redux-saga/effects'
 import {get, post} from '../fetch/fetch'
 import {actionsTypes as IndexActionTypes} from '../reducers'
 import {actionTypes as ArticleTypes} from '../reducers/adminManagerArticle'
+import {actionTypes as NewArticleTypes} from '../reducers/adminManagerNewArticle'
 
 export function* getArticleList (pageNum) {
     yield put({type: IndexActionTypes.FETCH_START});
@@ -59,6 +60,38 @@ export function* deleteArticleFlow () {
                 setTimeout(function () {
                     location.replace('/');
                 }, 1000);
+            } else {
+                yield put({type: IndexActionTypes.SET_MESSAGE, msgContent: res.message, msgType: 0});
+            }
+        }
+    }
+}
+
+export function* editArticle (id) {
+    yield put({type: IndexActionTypes.FETCH_START});
+    try {
+        return yield call(get, `/getArticleDetail?id=${id}`);
+    } catch (err) {
+        yield put({type: IndexActionTypes.SET_MESSAGE, msgContent: '网络请求错误', msgType: 0});
+    } finally {
+        yield put({type: IndexActionTypes.FETCH_END})
+    }
+}
+
+export function* editArticleFlow () {
+    while (true){
+        let req = yield take(ArticleTypes.ADMIN_EDIT_ARTICLE);
+        let res = yield call(editArticle,req.id);
+        if(res){
+            if (res.code === 0) {
+                let title = res.data.title;
+                let content = res.data.content;
+                let tags = res.data.tags;
+                let id = res.data._id;
+                yield put({type:NewArticleTypes.SET_ARTICLE_ID,id});
+                yield put({type:NewArticleTypes.UPDATING_TAGS,tags});
+                yield put({type:NewArticleTypes.UPDATING_CONTENT,content});
+                yield put({type:NewArticleTypes.UPDATING_TITLE,title});
             } else {
                 yield put({type: IndexActionTypes.SET_MESSAGE, msgContent: res.message, msgType: 0});
             }

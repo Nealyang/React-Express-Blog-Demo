@@ -8,5 +8,6 @@
 /api/admin/article/addArticle   添加文章
 /api/admin/article/modifiedArticle  修改文章
 /api/admin/article/delArticle   删除文章
+/api/admin/article/updateArticle   更新文章
 /api/getArticles                获取文章列表
 /api/getArticleDetail           获取文章详情
