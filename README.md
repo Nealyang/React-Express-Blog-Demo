@@ -83,6 +83,8 @@ node @7.9.0
 db @3.4.0
 ...
 别的就直接npm install 了
+
+注意MongoDB初始化后需要初始化一个admin/admin账户，用于登录后台管理
 ```
 
 ## 运行
@@ -92,6 +94,7 @@ db @3.4.0
     npm i
     
     npm start
+    
 
 ## 交流
 
