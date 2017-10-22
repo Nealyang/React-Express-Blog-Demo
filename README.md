@@ -44,17 +44,17 @@
 - 首页
 ![index](./record/2017-09-28%2010_25_45.gif)
 
-- 查看文章详情
-
-![](https://user-gold-cdn.xitu.io/2017/10/22/5fbfd8c16e97f07ea7733f6ca4fa53b3)
-
 - 非管理员登录
 
-![](https://user-gold-cdn.xitu.io/2017/10/22/eb5177b8830c18d9a070c68ad39d3395)
+![nealyanglogined](./record/nealyangLogined.gif)
 
 - 管理员登录
 
-![](https://user-gold-cdn.xitu.io/2017/10/22/1f90989e0be041e68b77df3035b2e372)
+![adminLogined](./record/adminLogined.gif)
+
+- 标签管理
+
+![amdinTag](./record/adminTag.gif)
 
 - 查看文章详情
 ![detail](./record/checkArticleDetail.gif)
