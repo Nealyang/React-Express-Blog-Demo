@@ -111,6 +111,9 @@ db @3.4.0
     
     npm start
     
+## 开发数据库
+
+> 链接: https://pan.baidu.com/s/1hsIPva0 密码: fwbb
 
 ## 交流
 
