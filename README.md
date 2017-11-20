@@ -89,7 +89,7 @@
 - [x] [开发实战react技术栈+express前后端博客项目（10）-- 前端文章列表、路由控制以及对应后端文章管理开发](./record/doc/10_前端文章列表、路由控制以及对应后端文章管理开发.md)
 - [x] [实战react技术栈+express前后端博客项目（11）-- 前端文章管理部分完善（修改、预览功能）](./record/doc/11_前端文章管理部分完善（修改、预览功能）.md)
 - [x] [实战react技术栈+express前后端博客项目（12）-- 博客添加评论功能以及对应后端实现](http://huziketang.com/books/react/lesson14)
-- [x] [实战react技术栈+express前后端博客项目（13）-- pm2的使用说明](./record/doc/12_pm2的使用说明.md)
+- [x] [实战react技术栈+express前后端博客项目（13）-- pm2的使用说明](https://github.com/jawil/blog/issues/7)
 - [x] [实战react技术栈+express前后端博客项目（14）-- 收工](./record/doc/13_收工.md)
 
 ## 环境
