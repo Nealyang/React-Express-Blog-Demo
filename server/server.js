@@ -41,11 +41,7 @@ if(process.env.NODE_EVN!=='production'){
     app.use(WebpackDevMiddleware(compiler, {
         publicPath: '/',
         stats: {colors: true},
-        lazy: false,
-        watchOptions: {
-            aggregateTimeout: 300,
-            poll: true
-        },
+        lazy: false
     }));
     app.use(WebpackHotMiddleware(compiler));
 }

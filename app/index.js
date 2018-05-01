@@ -17,8 +17,7 @@ render(
         <Provider store={store}>
             <IndexApp/>
         </Provider>
-    </AppContainer>
-    ,
+    </AppContainer>,
     mountNode
 );
 

@@ -18,7 +18,7 @@ const columns = [{
     dataIndex: '_id',
     key: 'ID',
 }, {
-    title: '密码(加密后)',
+    title: '密码(已加密)',
     dataIndex: 'password',
     key: 'password',
 }

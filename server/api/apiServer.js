@@ -30,6 +30,8 @@ app.use(session({
 app.use('/', require('./main'));
 //管理页面路由
 app.use('/admin', require('./admin'));
+// 爬虫的路由
+app.use('/crawlar',require('../crawlar/main'));
 
 mongoose.Promise = require('bluebird');
 mongoose.connect(`mongodb://${config.dbHost}:${config.dbPort}/blog`, function (err) {

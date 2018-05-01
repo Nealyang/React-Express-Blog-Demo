@@ -7,6 +7,7 @@ export const Logined = (props) => (
         <img src={require('./timg.jpeg')}/>
         <p>欢迎：{props.userInfo.username}</p>
         <p className={style.centerP}>光临我的博客~</p>
+        <Button className={style.enterCrawlarBtn} onClick={() => props.history.push('/crawlar')} type="primary">点击进入爬虫页面</Button>
         {props.userInfo.userType === 'admin' ?
             <Button onClick={() => props.history.push('/admin')} type="primary">点击进入管理页面</Button> : null}
     </div>

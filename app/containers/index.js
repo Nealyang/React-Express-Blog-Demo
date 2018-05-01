@@ -19,6 +19,7 @@ import {bindActionCreators} from 'redux'
 import {actions} from '../reducers'
 import Admin from "./admin/Admin";
 import Front from './front/Front'
+import Crawlar from './crawlar/Crawlar.jsx'
 import animationStyle from '../lib/animate.css'
 const {clear_msg, user_auth} = actions;
 
@@ -49,6 +50,7 @@ class AppIndex extends Component {
                     <Switch>
                         <Route path='/404' component={NotFound}/>
                         <Route path='/admin' component={Admin}/>
+                        <Route path='/crawlar' component={Crawlar}/>
                         <Route component={Front}/>
                     </Switch>
                     {isFetching && <Loading/>}
