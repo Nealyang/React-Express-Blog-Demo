@@ -3,7 +3,7 @@
   "plugins": ["react-hot-loader/babel",["import", { "libraryName": "antd", "style": true }],"transform-runtime","transform-class-properties"],
   "env": {
     "production":{
-      "preset":["react-optimize"]
+      "presets":["react-optimize"]
     }
   }
 }
