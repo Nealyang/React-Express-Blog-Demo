@@ -30,7 +30,7 @@ app.use(favicon(path.join(__dirname,'..','static','favicon.ico')));
 
 
 //热更新
-if(process.env.NODE_EVN!=='production'){
+if(process.env.NODE_ENV!=='production'){
     const Webpack = require('webpack');
     const WebpackDevMiddleware = require('webpack-dev-middleware');
     const WebpackHotMiddleware = require('webpack-hot-middleware');
