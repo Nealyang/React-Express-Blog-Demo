@@ -10,15 +10,7 @@
     "start-dev-api": "nodemon --watch server/api server/api/index.js",
     "start": "npm run watch-client & npm run start-dev-api"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Nealyang/React-Express-Blog-Demo.git"
-  },
-  "author": "Nealyang",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Nealyang/React-Express-Blog-Demo/issues"
-  },
   "homepage": "https://github.com/Nealyang/React-Express-Blog-Demo#readme",
   "dependencies": {
     "antd": "^2.13.1",
