@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import ReactMarkdown from 'react-markdown'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -128,8 +129,11 @@ class AdminNewArticle extends Component {
           footer={null}
         >
           <div className={style.modalContainer}>
-            <div id='preview' className={style.testCode}>
+            {/* <div id='preview' className={style.testCode}>
               {remark().use(reactRenderer).processSync(this.props.content).contents}
+            </div> */}
+            <div id='preview' className={style.testCode}>
+              <ReactMarkdown source={this.props.content} />
             </div>
           </div>
         </Modal>
