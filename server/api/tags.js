@@ -1,8 +1,7 @@
 import Express from 'express'
-
-const router = Express.Router();
 import Tags from '../../models/tags'
 import {responseClient} from '../util'
+const router = Express.Router();
 
 //删除标签
 router.get('/delTag', function (req, res) {

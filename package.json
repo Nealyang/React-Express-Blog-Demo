@@ -6,19 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch-client": "cross-env NODE_ENV=development node ./server/index.js",
-    "start-prod": "cross-env NODE_ENV=production node bin/server",
+    "watch-client-prod": "cross-env NODE_ENV=production node ./server/index.js",
     "start-dev-api": "nodemon --watch server/api server/api/index.js",
-    "start": "npm run watch-client & npm run start-dev-api"
+    "build": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
+    "start": "npm run watch-client & npm run start-dev-api",
+    "start-prod": "npm run build & npm run watch-client-prod & npm run start-dev-api"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Nealyang/React-Express-Blog-Demo.git"
-  },
-  "author": "Nealyang",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Nealyang/React-Express-Blog-Demo/issues"
-  },
   "homepage": "https://github.com/Nealyang/React-Express-Blog-Demo#readme",
   "dependencies": {
     "antd": "^2.13.1",
@@ -53,6 +47,7 @@
     "serve-favicon": "^2.4.4"
   },
   "devDependencies": {
+    "async": "^2.6.0",
     "autoprefixer": "^7.1.4",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
@@ -71,10 +66,12 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.26.0",
     "babel-runtime": "^6.26.0",
+    "cheerio": "^1.0.0-rc.2",
     "clean-webpack-plugin": "^0.1.16",
     "concurrently": "^3.5.0",
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
+    "eventproxy": "^1.0.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.30.1",
@@ -89,9 +86,12 @@
     "postcss-loader": "^2.0.6",
     "progress-bar-webpack-plugin": "^1.10.0",
     "react-hot-loader": "^3.0.0-beta.6",
+    "react-markdown": "^3.3.0",
     "redbox-react": "^1.5.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
+    "superagent": "^3.8.3",
+    "superagent-charset": "^1.2.0",
     "url-loader": "^0.5.9",
     "webpack": "^3.5.6",
     "webpack-dev-middleware": "^1.12.0",

@@ -1,4 +1,5 @@
 import React,{Component} from 'react'
+import ReactMarkdown from 'react-markdown'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import {bindActionCreators} from 'redux'
 import remark from 'remark'
@@ -32,8 +33,11 @@ class Detail extends Component{
                         <img src={require('./views.png')}/> {viewCount}
                     </span>
                 </div>
-                <div id='preview' className={style.content}>
+                {/* <div id='preview' className={style.content}>
                     {remark().use(reactRenderer).processSync(articleContent).contents}
+                </div> */}
+                <div id='preview' className={style.content}>
+                  <ReactMarkdown source={articleContent} />
                 </div>
             </div>
         )

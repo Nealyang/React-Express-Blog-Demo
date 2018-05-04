@@ -86,11 +86,13 @@ export function* editArticleFlow () {
             if (res.code === 0) {
                 let title = res.data.title;
                 let content = res.data.content;
+                let summary = res.data.content.slice(0, 20);
                 let tags = res.data.tags;
                 let id = res.data._id;
                 yield put({type:NewArticleTypes.SET_ARTICLE_ID,id});
                 yield put({type:NewArticleTypes.UPDATING_TAGS,tags});
                 yield put({type:NewArticleTypes.UPDATING_CONTENT,content});
+                yield put({type:NewArticleTypes.UPDATING_SUMMARY,summary});
                 yield put({type:NewArticleTypes.UPDATING_TITLE,title});
             } else {
                 yield put({type: IndexActionTypes.SET_MESSAGE, msgContent: res.message, msgType: 0});

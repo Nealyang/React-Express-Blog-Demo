@@ -1,6 +1,7 @@
 import {combineReducers} from 'redux'
 import {users} from './adminManagerUser'
 import {reducer as tags} from './adminManagerTags'
+import {reducer as crawlar} from './crawlarReducer'
 import {reducer as newArticle} from "./adminManagerNewArticle";
 import {articles} from './adminManagerArticle'
 
@@ -36,6 +37,7 @@ const admin = combineReducers({
     adminGlobalState:reducer,
     users,
     tags,
+    crawlar,
     newArticle,
     articles
 });

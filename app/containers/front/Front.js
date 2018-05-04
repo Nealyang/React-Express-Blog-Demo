@@ -7,7 +7,7 @@ import {
     Switch,
     Route
 } from 'react-router-dom'
-import Banner from "../components/banner/Banner";
+// import Banner from "../components/banner/Banner";
 import Menus from "../components/menu/Menus";
 import NotFound from "../../components/notFound/NotFound";
 import {bindActionCreators} from 'redux'
@@ -29,8 +29,7 @@ class Front extends Component{
         const {login, register} = this.props;
         return(
             <div>
-                <div>
-                    <Banner/>
+              <div>
                     <Menus getArticleList={(tag)=>this.props.get_article_list(tag,1)} categories={this.props.categories} history={this.props.history}/>
                 </div>
                 <div className={style.container}>
