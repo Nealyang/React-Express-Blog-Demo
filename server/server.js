@@ -30,7 +30,7 @@ app.use(favicon(path.join(__dirname,'..','static','favicon.ico')));
 
 
 //热更新
-if(process.env.NODE_EVN!=='production'){
+if(process.env.NODE_ENV!=='production'){
     const Webpack = require('webpack');
     const WebpackDevMiddleware = require('webpack-dev-middleware');
     const WebpackHotMiddleware = require('webpack-hot-middleware');
@@ -41,11 +41,7 @@ if(process.env.NODE_EVN!=='production'){
     app.use(WebpackDevMiddleware(compiler, {
         publicPath: '/',
         stats: {colors: true},
-        lazy: false,
-        watchOptions: {
-            aggregateTimeout: 300,
-            poll: true
-        },
+        lazy: false
     }));
     app.use(WebpackHotMiddleware(compiler));
 }

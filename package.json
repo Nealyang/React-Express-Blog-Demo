@@ -6,9 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch-client": "cross-env NODE_ENV=development node ./server/index.js",
-    "start-prod": "cross-env NODE_ENV=production node bin/server",
+    "watch-client-prod": "cross-env NODE_ENV=production node ./server/index.js",
     "start-dev-api": "nodemon --watch server/api server/api/index.js",
-    "start": "npm run watch-client & npm run start-dev-api"
+    "build": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
+    "start": "npm run watch-client & npm run start-dev-api",
+    "start-prod": "npm run build & npm run watch-client-prod & npm run start-dev-api"
   },
   "repository": {
     "type": "git",
