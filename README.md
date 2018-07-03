@@ -110,6 +110,16 @@ db @3.4.0
     npm i
     
     npm start
+
+## 独立打包
+
+    npm run build
+
+## 生产环境启动
+    
+    npm run start-prod
+
+    
     
 ## 开发数据库
 
