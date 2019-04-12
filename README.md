@@ -76,21 +76,23 @@
 
 ## 项目实现步骤系列博客
 
-- [x] [实战react技术栈+express前后端博客项目（0）-- 预热一波](./record/doc/00_预热一波.md)
-- [x] [实战react技术栈+express前后端博客项目（1）-- 整体项目结构搭建、state状态树设计](./record/doc/01_整体项目结构搭建、state状态树设计.md)
-- [x] [实战react技术栈+express前后端博客项目（2）-- 前端react-xxx、路由配置](https://github.com/Nealyang/React-Express-Blog-Demo/blob/master/record/doc/02_%E5%89%8D%E7%AB%AFreact-xxx%E3%80%81%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE.md)
-- [x] [实战react技术栈+express前后端博客项目（3）-- 后端路由、代理以及静态资源托管等其他配置说明](./record/doc/03_后端路由、代理以及静态资源托管等其他配置说明.md)
-- [x] [实战react技术栈+express前后端博客项目（4）-- 博客首页代码编写以及redux-saga组织](./record/doc/04_博客首页代码编写以及redux-saga组织.md)
-- [x] [实战react技术栈+express前后端博客项目（5）-- 前后端实现登录功能](./record/doc/05_前后端实现登录功能.md)
-- [x] [实战react技术栈+express前后端博客项目（6）-- 使用session实现免登陆+管理后台权限验证](./record/doc/06_使用session实现免登陆+管理后台权限验证.md)
-- [x] [实战react技术栈+express前后端博客项目（7）-- 前端管理界面用户查看功能+后端对应接口开发](./record/doc/07_前端管理界面用户查看功能+后端对应接口开发.md)
-- [x] [实战react技术栈+express前后端博客项目（8）-- 前端管理界面标签管理功能+后端对应接口开发](./record/doc/08_前端管理界面标签管理功能+后端对应接口开发.md)
-- [x] [实战react技术栈+express前后端博客项目（9）-- 前端管理界面发表文章功能+后端对应接口](./record/doc/09_前端管理界面发表文章功能+后端对应接口.md)
-- [x] [开发实战react技术栈+express前后端博客项目（10）-- 前端文章列表、路由控制以及对应后端文章管理开发](./record/doc/10_前端文章列表、路由控制以及对应后端文章管理开发.md)
-- [x] [实战react技术栈+express前后端博客项目（11）-- 前端文章管理部分完善（修改、预览功能）](./record/doc/11_前端文章管理部分完善（修改、预览功能）.md)
-- [x] [实战react技术栈+express前后端博客项目（12）-- 博客添加评论功能以及对应后端实现](http://huziketang.com/books/react/lesson14)
-- [x] [实战react技术栈+express前后端博客项目（13）-- pm2的使用说明](https://github.com/jawil/blog/issues/7)
-- [x] [实战react技术栈+express前后端博客项目（14）-- 收工](./record/doc/13_收工.md)
+- [x] [实战react技术栈+express前后端博客项目（0）-- 预热一波]
+- [x] [实战react技术栈+express前后端博客项目（1）-- 整体项目结构搭建、state状态树设计]
+- [x] [实战react技术栈+express前后端博客项目（2）-- 前端react-xxx、路由配置]
+- [x] [实战react技术栈+express前后端博客项目（3）-- 后端路由、代理以及静态资源托管等其他配置说明]
+- [x] [实战react技术栈+express前后端博客项目（4）-- 博客首页代码编写以及redux-saga组织]
+- [x] [实战react技术栈+express前后端博客项目（5）-- 前后端实现登录功能]
+- [x] [实战react技术栈+express前后端博客项目（6）-- 使用session实现免登陆+管理后台权限验证]
+- [x] [实战react技术栈+express前后端博客项目（7）-- 前端管理界面用户查看功能+后端对应接口开发]
+- [x] [实战react技术栈+express前后端博客项目（8）-- 前端管理界面标签管理功能+后端对应接口开发]
+- [x] [实战react技术栈+express前后端博客项目（9）-- 前端管理界面发表文章功能+后端对应接口]
+- [x] [开发实战react技术栈+express前后端博客项目（10）-- 前端文章列表、路由控制以及对应后端文章管理开发]
+- [x] [实战react技术栈+express前后端博客项目（11）-- 前端文章管理部分完善（修改、预览功能）]
+- [x] [实战react技术栈+express前后端博客项目（12）-- 博客添加评论功能以及对应后端实现]
+- [x] [实战react技术栈+express前后端博客项目（13）-- pm2的使用说明]
+- [x] [实战react技术栈+express前后端博客项目（14）-- 收工]
+
+> 移步[Nealyang/personalBlog](https://github.com/Nealyang/PersonalBlog/blob/master/README.md#node%E7%9B%B8%E5%85%B3)
 
 ## 环境
 
